@@ -190,8 +190,6 @@ const resolveImg = (url, addr) => {
   if(!url) return null;
   if(url.startsWith('ipfs://')) return 'https://ipfs.io/ipfs/'+url.slice(7);
   if(url.startsWith('Qm') || url.startsWith('ba')) return 'https://ipfs.io/ipfs/'+url;
-  if(!url) return null;
-  if(url.startsWith("ipfs://")) return "https://cf-ipfs.com/ipfs/"+url.slice(7);
   return url;
 };
 
