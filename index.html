@@ -158,6 +158,10 @@ const PINNED_ADDRS = [
   "3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise", // Just Borrow
   "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH"  // Rubbery Plastic
 ];
+const TOKEN_IMGS = {
+  '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise': 'https://i.postimg.cc/jSMTkyDx/Qm-Yio-Tbwvxe-Mz-Sdv-Ty-Cfv8D4JXe-Qfw-C7BBHAFea-Gsbo6n-U-just-b.webp',
+  '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH': 'https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp'
+};
 const REFRESH = 300;
 let countdown = REFRESH;
 
@@ -181,7 +185,8 @@ const tokName  = t => t.token_name||t.token_symbol||"—";
 const tradeUrl = t => `https://rise.rich/trade/${t.rise_market_address||""}`;
 
 // Convert IPFS URL to working gateway
-const resolveImg = url => {
+const resolveImg = (url, addr) => {
+  if(addr && TOKEN_IMGS[addr]) return TOKEN_IMGS[addr];
   if(!url) return null;
   if(url.startsWith("ipfs://")) return "https://nftstorage.link/ipfs/"+url.slice(7);
   return url;
@@ -193,7 +198,7 @@ function gemScore(t){
 
 function featuredCard(t){
   const b = borrow(t);
-  const im = resolveImg(t.token_image);
+  const im = resolveImg(t.token_image, t.rise_market_address);
   const url = tradeUrl(t);
   return `
   <div class="card featured-card" onclick="window.open('${url}','_blank')">
@@ -220,7 +225,7 @@ function featuredCard(t){
 
 function watchCard(t){
   const b = borrow(t);
-  const im = resolveImg(t.token_image);
+  const im = resolveImg(t.token_image, t.rise_market_address);
   const url = tradeUrl(t);
   return `
   <div class="card watch-card" onclick="window.open('${url}','_blank')">
