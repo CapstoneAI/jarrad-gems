@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>JARRAD Gems</title>
+<title>JARRAD Gems 💎</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -18,26 +18,22 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .live-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .section-title{font-size:11px;font-weight:600;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-
-/* FEATURED */
 .featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
 .featured-card{padding:0;cursor:pointer;transition:transform .2s,box-shadow .2s;overflow:hidden;display:flex;flex-direction:column}
 .featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
-.feat-img-wrap{position:relative;width:100%;height:160px;overflow:hidden}
-.feat-img{width:100%;height:100%;object-fit:cover;display:block}
-.feat-img-ph{width:100%;height:160px;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:48px}
-.feat-spark{position:absolute;font-size:12px;animation:sparkle 2s infinite}
+.feat-img-wrap{position:relative;width:100%;height:160px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5)}
+.feat-img{width:100%;height:160px;object-fit:cover;display:block}
+.feat-img-ph{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:48px}
+.feat-spark{position:absolute;font-size:12px;animation:sparkle 2s infinite;pointer-events:none}
 .fs1{top:8px;right:10px;color:#fbbf24;animation-delay:0s}
 .fs2{bottom:8px;left:8px;color:#a78bfa;animation-delay:.7s}
 .fs3{top:50%;right:8px;color:#f472b6;animation-delay:.4s}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
 .feat-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
-.feat-top{display:flex;justify-content:space-between;align-items:flex-start}
 .feat-name{font-size:16px;font-weight:700;color:#1a1a2e}
-.feat-sym{font-size:11px;color:#7c3aed;font-weight:500}
+.feat-sym{font-size:11px;color:#7c3aed;font-weight:500;margin-top:2px}
 .borrow-pill{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:1.5px solid #fbbf24;border-radius:10px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
-.bp-left{display:flex;flex-direction:column;gap:1px}
-.bp-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d97706}
+.bp-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d97706;margin-bottom:2px}
 .bp-sub{font-size:10px;color:#b45309}
 .bp-val{font-size:22px;font-weight:700;color:#92400e;line-height:1}
 .feat-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
@@ -45,30 +41,22 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .fs-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
 .fs-val{font-size:12px;font-weight:600;color:#1a1a2e}
 .fs-val.purple{color:#7c3aed}
-.fs-val.green{color:#16a34a}
 .fs-val.orange{color:#ea580c}
-.trade-btn-sm{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:8px;padding:10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:opacity .2s;margin-top:4px}
+.trade-btn-sm{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:8px;padding:10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:opacity .2s}
 .trade-btn-sm:hover{opacity:.88}
-
-/* WATCH */
 .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .watch-card{overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
 .watch-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.10)}
-.watch-img-wrap{width:100%;height:100px;overflow:hidden;position:relative}
-.watch-img{width:100%;height:100%;object-fit:cover}
-.watch-img-ph{width:100%;height:100px;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:32px}
+.watch-img-wrap{width:100%;height:100px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5)}
+.watch-img{width:100%;height:100px;object-fit:cover;display:block}
 .watch-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
 .watch-name{font-size:14px;font-weight:700;color:#1a1a2e}
 .watch-sym{font-size:10px;color:#7c3aed;font-weight:500}
 .watch-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ws-item{display:flex;flex-direction:column;gap:1px}
-.ws-lbl{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1px}
+.ws-lbl{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
 .ws-val{font-size:11px;font-weight:600;color:#1a1a2e}
 .ws-val.orange{color:#ea580c}
-.badges{display:flex;gap:4px;flex-wrap:wrap}
 .bb{display:inline-flex;align-items:center;gap:3px;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#92400e}
-
-/* RANKING */
 .rank-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:background .15s}
 .rank-row:last-child{border-bottom:none}
 .rank-row:hover{background:rgba(124,58,237,.04)}
@@ -85,18 +73,16 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .rank-bb{font-size:9px;font-weight:700;padding:2px 5px;border-radius:5px;background:#fef3c7;color:#92400e;border:1px solid #fbbf24;white-space:nowrap}
 .rank-trade{font-size:10px;color:#7c3aed;font-weight:600;text-decoration:none;white-space:nowrap;padding:3px 8px;border:1px solid #7c3aed;border-radius:6px}
 .rank-trade:hover{background:#7c3aed;color:#fff}
-
-/* SIDEBAR */
 .refresh-info{font-size:11px;color:#aaa;text-align:right;margin-bottom:8px}
 .sidebar{display:flex;flex-direction:column;gap:14px}
 .j-photo{width:100%;height:190px;object-fit:cover;object-position:top;display:block}
 .j-body{padding:16px}
-.j-name{font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
-.j-sub{font-size:11px;color:#7c3aed;font-weight:500;margin-bottom:10px}
 .j-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.j-name{font-size:18px;font-weight:700;color:#1a1a2e}
+.j-sub{font-size:11px;color:#7c3aed;font-weight:500;margin-top:2px}
 .j-hn{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px}
 .j-hv{font-size:20px;font-weight:700;color:#7c3aed}
-.j-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.j-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
 .j-stat{background:rgba(124,58,237,.06);border-radius:10px;padding:10px}
 .j-stat-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
 .j-stat-val{font-size:12px;font-weight:600;color:#1a1a2e}
@@ -124,17 +110,17 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
       <p>The most interesting tokens on rise.rich right now</p>
       <div class="live-pill"><div class="live-dot"></div> Live · Scored by borrow, floor &amp; holders</div>
     </div>
-
     <div class="section-title">🔥 Top Gems of the moment</div>
     <div class="featured-grid" id="featuredGrid">
       <div class="card"><div class="loading-state"><div class="spinner"></div>Loading...</div></div>
       <div class="card"><div class="loading-state"><div class="spinner"></div>Loading...</div></div>
     </div>
-
     <div class="refresh-info" id="refreshInfo" style="margin-top:16px">Refreshing in 5:00</div>
     <div class="section-title">👀 Also worth watching</div>
-    <div class="watch-grid" id="watchGrid"></div>
-
+    <div class="watch-grid" id="watchGrid">
+      <div class="card"><div class="loading-state" style="padding:30px 0"><div class="spinner"></div></div></div>
+      <div class="card"><div class="loading-state" style="padding:30px 0"><div class="spinner"></div></div></div>
+    </div>
     <div style="margin-top:24px">
       <div class="section-title">📊 Rising — under $500K mkt cap</div>
       <div class="card" id="rankList" style="padding:4px 0">
@@ -142,11 +128,9 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
       </div>
     </div>
   </div>
-
   <aside class="sidebar">
     <div class="card" style="overflow:hidden">
-      <img class="j-photo" src="https://i.imgur.com/iic5bON.jpg"
-           onerror="this.src='https://i.postimg.cc/cHTq8xcx/Panda.png'" alt="JARRAD"/>
+      <img class="j-photo" src="https://i.imgur.com/iic5bON.jpg" onerror="this.src='https://i.postimg.cc/cHTq8xcx/Panda.png'" alt="JARRAD"/>
       <div class="j-body">
         <div class="j-top">
           <div><div class="j-name">JARRAD</div><div class="j-sub">$JARRAD · rise.rich</div></div>
@@ -165,89 +149,69 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
       <a href="https://jarra-driseboard.vercel.app" target="_blank">📊 &nbsp;JARRAD RiseBoard</a>
     </div>
   </aside>
-
   <div class="footer">powered by <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · data from rise.rich · DYOR</div>
 </div>
-
 <script>
 const PROXY = "https://jarra-driseboard.vercel.app/api/proxy?path=";
 const JARRAD_CA = "G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise";
+const PINNED_ADDRS = [
+  "3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise", // Just Borrow
+  "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH"  // Rubbery Plastic
+];
 const REFRESH = 300;
 let countdown = REFRESH;
 
-// Pinned gems: address + custom image
-const PINNED = [
-  {
-    addr: "3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise",
-    img:  "https://i.postimg.cc/jSMTkyDx/Qm-Yio-Tbwvxe-Mz-Sdv-Ty-Cfv8D4JXe-Qfw-C7BBHAFea-Gsbo6n-U-just-b.webp",
-    label:"Just Borrow"
-  },
-  {
-    addr: "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH",
-    img:  "https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp",
-    label:"Rubbery Plastic"
-  }
-];
-
-const api = p => fetch(PROXY + encodeURIComponent(p)).then(r => r.json());
+const api = p => fetch(PROXY + encodeURIComponent(p)).then(r => { if(!r.ok) throw new Error(r.status); return r.json(); });
 
 const fmtU = n => {
   n = parseFloat(n||0);
   if(!n) return "—";
   if(n>=1e6) return "$"+(n/1e6).toFixed(2)+"M";
   if(n>=1000) return "$"+(n/1e3).toFixed(1)+"K";
-  if(n<0.01) return "$"+n.toLocaleString("en",{maximumFractionDigits:8});
-  return "$"+n.toFixed(4);
+  if(n<0.001) return "$"+n.toFixed(8);
+  return "$"+n.toFixed(6);
 };
-const fmtSol = n => { n=parseFloat(n||0); return n>0?n.toFixed(2)+" SOL":"—"; };
 
-const borrow  = t => parseFloat(t.mayflower_total_debt||0)/1e9;
-const mcap    = t => parseFloat(t.market_cap_usd||0);
-const floorP  = t => parseFloat(t.mayflower_floor||0);
-const holdersN= t => parseInt(t.holders_count||t.holders||0);
-const sym     = t => t.token_symbol||t.token_name||"?";
-const tokName = t => t.token_name||t.token_symbol||"—";
-const tokImg  = (t, customImg) => customImg || t.token_image || null;
-const tradeUrl= t => `https://rise.rich/trade/${t.rise_market_address||""}`;
+const borrow   = t => parseFloat(t.mayflower_total_debt||0)/1e9;
+const mcap     = t => parseFloat(t.market_cap_usd||0);
+const floorP   = t => parseFloat(t.mayflower_floor||0);
+const holdersN = t => parseInt(t.holders_count||t.holders||0);
+const sym      = t => (t.token_symbol&&t.token_symbol!=="?")?t.token_symbol:(t.token_name||"?");
+const tokName  = t => t.token_name||t.token_symbol||"—";
+const tradeUrl = t => `https://rise.rich/trade/${t.rise_market_address||""}`;
+
+// Convert IPFS URL to working gateway
+const resolveImg = url => {
+  if(!url) return null;
+  if(url.startsWith("ipfs://")) return "https://ipfs.io/ipfs/"+url.slice(7);
+  return url;
+};
 
 function gemScore(t){
-  const b = borrow(t);
-  const f = floorP(t) > 0 ? 1 : 0;
-  const h = Math.min(holdersN(t)/100, 1);
-  const m = Math.min(mcap(t)/10000, 1);
-  return b*4 + f*2 + h*2 + m;
+  return borrow(t)*4 + (floorP(t)>0?2:0) + Math.min(holdersN(t)/100,2) + Math.min(mcap(t)/50000,1);
 }
 
-function featuredCard(t, customImg, label){
+function featuredCard(t){
   const b = borrow(t);
-  const im = tokImg(t, customImg);
+  const im = resolveImg(t.token_image);
   const url = tradeUrl(t);
   return `
   <div class="card featured-card" onclick="window.open('${url}','_blank')">
     <div class="feat-img-wrap">
-      ${im
-        ? `<img class="feat-img" src="${im}" onerror="this.style.display='none'" alt="${sym(t)}"/>`
-        : `<div class="feat-img-ph">💎</div>`}
-      <span class="feat-spark fs1">✦</span>
-      <span class="feat-spark fs2">✦</span>
-      <span class="feat-spark fs3">✦</span>
+      ${im ? `<img class="feat-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>` : `<div class="feat-img-ph">💎</div>`}
+      <span class="feat-spark fs1">✦</span><span class="feat-spark fs2">✦</span><span class="feat-spark fs3">✦</span>
     </div>
     <div class="feat-body">
-      <div class="feat-top">
-        <div><div class="feat-name">${label||tokName(t)}</div><div class="feat-sym">$${sym(t)}</div></div>
-      </div>
+      <div><div class="feat-name">${tokName(t)}</div><div class="feat-sym">$${sym(t)}</div></div>
       <div class="borrow-pill">
-        <div class="bp-left">
-          <div class="bp-lbl">🔥 Active Borrow</div>
-          <div class="bp-sub">${b>0?b.toFixed(2)+' SOL':'no borrow'}</div>
-        </div>
+        <div><div class="bp-lbl">🔥 Active Borrow</div><div class="bp-sub">${b>0?b.toFixed(3)+' SOL':'no borrow'}</div></div>
         <div class="bp-val">${b>0?b.toFixed(1):'0'}</div>
       </div>
       <div class="feat-stats">
         <div class="fs-item"><div class="fs-lbl">Floor</div><div class="fs-val purple">${fmtU(floorP(t))}</div></div>
         <div class="fs-item"><div class="fs-lbl">Mkt Cap</div><div class="fs-val">${fmtU(mcap(t))}</div></div>
         <div class="fs-item"><div class="fs-lbl">Holders</div><div class="fs-val">${holdersN(t)||'—'}</div></div>
-        <div class="fs-item"><div class="fs-lbl">Token</div><div class="fs-val orange">$${sym(t)}</div></div>
+        <div class="fs-item"><div class="fs-lbl">Price</div><div class="fs-val orange">${fmtU(t.price)}</div></div>
       </div>
       <a class="trade-btn-sm" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a>
     </div>
@@ -256,24 +220,22 @@ function featuredCard(t, customImg, label){
 
 function watchCard(t){
   const b = borrow(t);
-  const im = tokImg(t, null);
+  const im = resolveImg(t.token_image);
   const url = tradeUrl(t);
   return `
   <div class="card watch-card" onclick="window.open('${url}','_blank')">
     <div class="watch-img-wrap">
-      ${im
-        ? `<img class="watch-img" src="${im}" onerror="this.style.display='none'" alt="${sym(t)}"/>`
-        : `<div class="watch-img-ph">💎</div>`}
+      ${im ? `<img class="watch-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>` : ''}
     </div>
     <div class="watch-body">
       <div><div class="watch-name">${tokName(t)}</div><div class="watch-sym">$${sym(t)}</div></div>
       <div class="watch-stats">
-        <div class="ws-item"><div class="ws-lbl">Floor</div><div class="ws-val">${fmtU(floorP(t))}</div></div>
-        <div class="ws-item"><div class="ws-lbl">Mkt Cap</div><div class="ws-val">${fmtU(mcap(t))}</div></div>
-        <div class="ws-item"><div class="ws-lbl">Holders</div><div class="ws-val">${holdersN(t)||'—'}</div></div>
-        <div class="ws-item"><div class="ws-lbl">Borrow</div><div class="ws-val orange">${b>0?b.toFixed(2)+' SOL':'—'}</div></div>
+        <div><div class="ws-lbl">Floor</div><div class="ws-val">${fmtU(floorP(t))}</div></div>
+        <div><div class="ws-lbl">Mkt Cap</div><div class="ws-val">${fmtU(mcap(t))}</div></div>
+        <div><div class="ws-lbl">Holders</div><div class="ws-val">${holdersN(t)||'—'}</div></div>
+        <div><div class="ws-lbl">Borrow</div><div class="ws-val orange">${b>0?b.toFixed(2)+' SOL':'—'}</div></div>
       </div>
-      ${b>0?`<div class="badges"><span class="bb">🔥 ${b.toFixed(2)} SOL</span></div>`:''}
+      ${b>0?`<div><span class="bb">🔥 ${b.toFixed(2)} SOL</span></div>`:''}
       <a class="trade-btn-sm" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a>
     </div>
   </div>`;
@@ -285,69 +247,64 @@ function renderRanking(list){
   const max = list[0]._score||1;
   const medals=["🥇","🥈","🥉"], mc=["gold","silver","bronze"];
   el.innerHTML = list.map((t,i)=>{
-    const pct = Math.round((t._score/max)*100);
-    const b = borrow(t);
-    const col = i===0?"#f59e0b":i===1?"#7c3aed":i===2?"#ea580c":"#94a3b8";
-    const im = tokImg(t,null);
-    const url = tradeUrl(t);
-    return `<div class="rank-row">
+    const pct=Math.round((t._score/max)*100);
+    const b=borrow(t);
+    const col=i===0?"#f59e0b":i===1?"#7c3aed":i===2?"#ea580c":"#94a3b8";
+    const im=resolveImg(t.token_image);
+    return `<div class="rank-row" onclick="window.open('${tradeUrl(t)}','_blank')">
       <div class="rank-pos ${i<3?mc[i]:''}">${i<3?medals[i]:'#'+(i+1)}</div>
-      ${im?`<img class="rank-img" src="${im}" onerror="this.style.display='none'" alt="${sym(t)}"/>` : `<div class="rank-img-ph">💎</div>`}
-      <div class="rank-info">
-        <div class="rank-name">${tokName(t)}</div>
-        <div class="rank-mc">${fmtU(mcap(t))}</div>
-      </div>
+      ${im?`<img class="rank-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>`:`<div class="rank-img-ph">💎</div>`}
+      <div class="rank-info"><div class="rank-name">${tokName(t)}</div><div class="rank-mc">${fmtU(mcap(t))}</div></div>
       <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%;background:${col}"></div></div>
       <div class="rank-pct">${pct}%</div>
       ${b>0?`<span class="rank-bb">🔥${b.toFixed(1)}</span>`:''}
-      <a class="rank-trade" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade →</a>
+      <a class="rank-trade" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade →</a>
     </div>`;
   }).join("");
 }
 
 async function loadAll(){
   try {
-    const data = await api("/markets?limit=200&page=1");
-    const markets = data.markets||data.data||[];
+    // Fetch page 1 + pinned tokens directly (parallel)
+    const [data, ...pinnedResults] = await Promise.all([
+      api("/markets?limit=200&page=1"),
+      ...PINNED_ADDRS.map(addr => api("/markets/"+addr).catch(()=>null))
+    ]);
 
-    // Find pinned in markets list, fallback to direct fetch
-    const pinnedTokens = await Promise.all(PINNED.map(async p => {
-      let t = markets.find(m => m.rise_market_address===p.addr || m.mint_token===p.addr);
-      if(!t){
-        try { t = await api("/markets/"+p.addr); } catch(e){}
-      }
-      return t ? {data: t, meta: p} : null;
-    }));
+    const markets = data.markets || data.data || [];
 
-    const validPinned = pinnedTokens.filter(Boolean);
-    document.getElementById("featuredGrid").innerHTML = validPinned.length
-      ? validPinned.map(p => featuredCard(p.data, p.meta.img, p.meta.label)).join("")
+    // Use direct fetch for pinned (most reliable), fallback to page search
+    const pinned = PINNED_ADDRS.map((addr, i) => {
+      const direct = pinnedResults[i];
+      if(direct && direct.rise_market_address) return direct;
+      return markets.find(m => m.rise_market_address===addr || m.mint_token===addr) || null;
+    }).filter(Boolean);
+
+    document.getElementById("featuredGrid").innerHTML = pinned.length
+      ? pinned.map(featuredCard).join("")
       : '<div class="card" style="grid-column:1/-1"><div class="loading-state">Tokens not found 🔄</div></div>';
 
     // Watch: top scored excluding pinned
-    const pinnedAddrs = PINNED.map(p=>p.addr);
     const rest = markets
-      .filter(t => !pinnedAddrs.includes(t.rise_market_address) && !pinnedAddrs.includes(t.mint_token))
+      .filter(t => !PINNED_ADDRS.includes(t.rise_market_address) && !PINNED_ADDRS.includes(t.mint_token))
       .map(t => ({...t, _score: gemScore(t)}))
       .sort((a,b) => b._score - a._score);
 
-    document.getElementById("watchGrid").innerHTML = rest.slice(0,2).map(watchCard).join("") 
+    document.getElementById("watchGrid").innerHTML = rest.slice(0,2).map(watchCard).join("")
       || "<div style='color:#aaa;font-size:12px;padding:20px'>No data</div>";
 
-    // Ranking under 500K, at least 1 holder
-    const ranked = rest
-      .filter(t => mcap(t) > 0 && mcap(t) < 500000 && holdersN(t) > 0)
-      .slice(0, 10);
+    // Ranking
+    const ranked = rest.filter(t => mcap(t)>0 && mcap(t)<500000).slice(0,10);
     renderRanking(ranked);
 
-    // JARRAD stats — direct fetch
+    // JARRAD stats
     try {
       const j = await api("/markets/"+JARRAD_CA);
       document.getElementById("jP").textContent = fmtU(j.price);
       document.getElementById("jF").textContent = fmtU(j.mayflower_floor);
       document.getElementById("jM").textContent = fmtU(j.market_cap_usd);
-      document.getElementById("jH").textContent = j.holders_count||"—";
-    } catch(e){ console.log("JARRAD stats err",e); }
+      document.getElementById("jH").textContent = j.holders_count || "—";
+    } catch(e){ console.warn("JARRAD stats:", e.message); }
 
   } catch(e){
     console.error(e);
