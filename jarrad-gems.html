@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>JARRAD Gems</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(135deg,#f5c6a0 0%,#f0b8c8 30%,#e8b4e8 60%,#c8b4f0 100%);background-attachment:fixed}
+.layout{display:grid;grid-template-columns:1fr 300px;max-width:1100px;margin:0 auto;padding:40px 20px;gap:28px;align-items:start}
+.card{background:rgba(255,255,255,0.78);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.9);border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+.page-header{text-align:center;margin-bottom:32px}
+.page-header h1{font-size:26px;font-weight:700;color:#1a1a2e}
+.page-header h1 span{color:#7c3aed}
+.page-header p{font-size:13px;color:#666;margin-top:4px}
+.live-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:4px 12px;font-size:11px;color:#555;margin-top:10px}
+.live-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.section-title{font-size:11px;font-weight:600;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+
+/* FEATURED */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.featured-card{padding:0;cursor:pointer;transition:transform .2s,box-shadow .2s;overflow:hidden;display:flex;flex-direction:column}
+.featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
+.feat-img-wrap{position:relative;width:100%;height:160px;overflow:hidden}
+.feat-img{width:100%;height:100%;object-fit:cover;display:block}
+.feat-img-ph{width:100%;height:160px;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:48px}
+.feat-spark{position:absolute;font-size:12px;animation:sparkle 2s infinite}
+.fs1{top:8px;right:10px;color:#fbbf24;animation-delay:0s}
+.fs2{bottom:8px;left:8px;color:#a78bfa;animation-delay:.7s}
+.fs3{top:50%;right:8px;color:#f472b6;animation-delay:.4s}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
+.feat-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
+.feat-top{display:flex;justify-content:space-between;align-items:flex-start}
+.feat-name{font-size:16px;font-weight:700;color:#1a1a2e}
+.feat-sym{font-size:11px;color:#7c3aed;font-weight:500}
+.borrow-pill{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:1.5px solid #fbbf24;border-radius:10px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
+.bp-left{display:flex;flex-direction:column;gap:1px}
+.bp-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d97706}
+.bp-sub{font-size:10px;color:#b45309}
+.bp-val{font-size:22px;font-weight:700;color:#92400e;line-height:1}
+.feat-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.fs-item{background:rgba(124,58,237,.05);border-radius:8px;padding:8px}
+.fs-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.fs-val{font-size:12px;font-weight:600;color:#1a1a2e}
+.fs-val.purple{color:#7c3aed}
+.fs-val.green{color:#16a34a}
+.fs-val.orange{color:#ea580c}
+.trade-btn-sm{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:8px;padding:10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:opacity .2s;margin-top:4px}
+.trade-btn-sm:hover{opacity:.88}
+
+/* WATCH */
+.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.watch-card{overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.watch-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.10)}
+.watch-img-wrap{width:100%;height:100px;overflow:hidden;position:relative}
+.watch-img{width:100%;height:100%;object-fit:cover}
+.watch-img-ph{width:100%;height:100px;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:32px}
+.watch-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
+.watch-name{font-size:14px;font-weight:700;color:#1a1a2e}
+.watch-sym{font-size:10px;color:#7c3aed;font-weight:500}
+.watch-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ws-item{display:flex;flex-direction:column;gap:1px}
+.ws-lbl{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1px}
+.ws-val{font-size:11px;font-weight:600;color:#1a1a2e}
+.ws-val.orange{color:#ea580c}
+.badges{display:flex;gap:4px;flex-wrap:wrap}
+.bb{display:inline-flex;align-items:center;gap:3px;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#92400e}
+
+/* RANKING */
+.rank-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:background .15s}
+.rank-row:last-child{border-bottom:none}
+.rank-row:hover{background:rgba(124,58,237,.04)}
+.rank-pos{font-size:13px;font-weight:700;min-width:26px;text-align:center;color:#aaa}
+.rank-pos.gold{color:#f59e0b}.rank-pos.silver{color:#94a3b8}.rank-pos.bronze{color:#b45309}
+.rank-img{width:30px;height:30px;border-radius:6px;object-fit:cover;background:#f0f0f5;flex-shrink:0}
+.rank-img-ph{width:30px;height:30px;border-radius:6px;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.rank-info{flex:0 0 90px}
+.rank-name{font-size:12px;font-weight:600;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-mc{font-size:10px;color:#7c3aed}
+.rank-bar-wrap{flex:1;height:5px;background:rgba(0,0,0,.07);border-radius:3px;overflow:hidden}
+.rank-bar{height:100%;border-radius:3px}
+.rank-pct{font-size:12px;font-weight:700;min-width:38px;text-align:right;color:#1a1a2e}
+.rank-bb{font-size:9px;font-weight:700;padding:2px 5px;border-radius:5px;background:#fef3c7;color:#92400e;border:1px solid #fbbf24;white-space:nowrap}
+.rank-trade{font-size:10px;color:#7c3aed;font-weight:600;text-decoration:none;white-space:nowrap;padding:3px 8px;border:1px solid #7c3aed;border-radius:6px}
+.rank-trade:hover{background:#7c3aed;color:#fff}
+
+/* SIDEBAR */
+.refresh-info{font-size:11px;color:#aaa;text-align:right;margin-bottom:8px}
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.j-photo{width:100%;height:190px;object-fit:cover;object-position:top;display:block}
+.j-body{padding:16px}
+.j-name{font-size:18px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+.j-sub{font-size:11px;color:#7c3aed;font-weight:500;margin-bottom:10px}
+.j-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.j-hn{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px}
+.j-hv{font-size:20px;font-weight:700;color:#7c3aed}
+.j-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.j-stat{background:rgba(124,58,237,.06);border-radius:10px;padding:10px}
+.j-stat-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.j-stat-val{font-size:12px;font-weight:600;color:#1a1a2e}
+.j-stat-val.purple{color:#7c3aed}
+.trade-btn{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:10px;padding:13px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-bottom:10px;transition:opacity .2s}
+.trade-btn:hover{opacity:.9}
+.j-note{font-size:11px;color:#888;text-align:center;line-height:1.6}
+.j-note a{color:#7c3aed;text-decoration:none;font-weight:500}
+.nav-card{padding:10px 12px}
+.nav-card a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;color:#444;font-size:12px;font-weight:500;transition:background .15s}
+.nav-card a:hover{background:rgba(124,58,237,.07);color:#7c3aed}
+.loading-state{display:flex;flex-direction:column;align-items:center;gap:12px;padding:50px 0;color:#aaa;font-size:12px}
+.spinner{width:28px;height:28px;border:2px solid #e0e0e0;border-top-color:#7c3aed;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.footer{text-align:center;padding:24px 0 8px;font-size:11px;color:#999;grid-column:1/-1}
+.footer a{color:#7c3aed;text-decoration:none;font-weight:500}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.featured-grid,.watch-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <div>
+    <div class="page-header">
+      <h1>JARRAD <span>Gems</span> 💎</h1>
+      <p>The most interesting tokens on rise.rich right now</p>
+      <div class="live-pill"><div class="live-dot"></div> Live · Scored by borrow, floor &amp; holders</div>
+    </div>
+
+    <div class="section-title">🔥 Top Gems of the moment</div>
+    <div class="featured-grid" id="featuredGrid">
+      <div class="card"><div class="loading-state"><div class="spinner"></div>Loading...</div></div>
+      <div class="card"><div class="loading-state"><div class="spinner"></div>Loading...</div></div>
+    </div>
+
+    <div class="refresh-info" id="refreshInfo" style="margin-top:16px">Refreshing in 5:00</div>
+    <div class="section-title">👀 Also worth watching</div>
+    <div class="watch-grid" id="watchGrid"></div>
+
+    <div style="margin-top:24px">
+      <div class="section-title">📊 Rising — under $500K mkt cap</div>
+      <div class="card" id="rankList" style="padding:4px 0">
+        <div class="loading-state" style="padding:30px 0"><div class="spinner"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="card" style="overflow:hidden">
+      <img class="j-photo" src="https://i.imgur.com/iic5bON.jpg"
+           onerror="this.src='https://i.postimg.cc/cHTq8xcx/Panda.png'" alt="JARRAD"/>
+      <div class="j-body">
+        <div class="j-top">
+          <div><div class="j-name">JARRAD</div><div class="j-sub">$JARRAD · rise.rich</div></div>
+          <div style="text-align:right"><div class="j-hn">Holders</div><div class="j-hv" id="jH">—</div></div>
+        </div>
+        <div class="j-stats">
+          <div class="j-stat"><div class="j-stat-lbl">Price</div><div class="j-stat-val" id="jP">—</div></div>
+          <div class="j-stat"><div class="j-stat-lbl">Floor</div><div class="j-stat-val purple" id="jF">—</div></div>
+          <div class="j-stat" style="grid-column:1/-1"><div class="j-stat-lbl">Market Cap</div><div class="j-stat-val" id="jM">—</div></div>
+        </div>
+        <a class="trade-btn" href="https://rise.rich/trade/G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise" target="_blank">Trade $JARRAD →</a>
+        <div class="j-note">DYOR · <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · <a href="https://t.me/+nI5XvDjAfcMzOTFk" target="_blank">Telegram</a></div>
+      </div>
+    </div>
+    <div class="card nav-card">
+      <a href="https://jarra-driseboard.vercel.app" target="_blank">📊 &nbsp;JARRAD RiseBoard</a>
+    </div>
+  </aside>
+
+  <div class="footer">powered by <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · data from rise.rich · DYOR</div>
+</div>
+
+<script>
+const PROXY = "https://jarra-driseboard.vercel.app/api/proxy?path=";
+const JARRAD_CA = "G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise";
+const REFRESH = 300;
+let countdown = REFRESH;
+
+// Pinned gems: address + custom image
+const PINNED = [
+  {
+    addr: "3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise",
+    img:  "https://i.postimg.cc/jSMTkyDx/Qm-Yio-Tbwvxe-Mz-Sdv-Ty-Cfv8D4JXe-Qfw-C7BBHAFea-Gsbo6n-U-just-b.webp",
+    label:"Just Borrow"
+  },
+  {
+    addr: "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH",
+    img:  "https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp",
+    label:"Rubbery Plastic"
+  }
+];
+
+const api = p => fetch(PROXY + encodeURIComponent(p)).then(r => r.json());
+
+const fmtU = n => {
+  n = parseFloat(n||0);
+  if(!n) return "—";
+  if(n>=1e6) return "$"+(n/1e6).toFixed(2)+"M";
+  if(n>=1000) return "$"+(n/1e3).toFixed(1)+"K";
+  if(n<0.01) return "$"+n.toLocaleString("en",{maximumFractionDigits:8});
+  return "$"+n.toFixed(4);
+};
+const fmtSol = n => { n=parseFloat(n||0); return n>0?n.toFixed(2)+" SOL":"—"; };
+
+const borrow  = t => parseFloat(t.mayflower_total_debt||0)/1e9;
+const mcap    = t => parseFloat(t.market_cap_usd||0);
+const floorP  = t => parseFloat(t.mayflower_floor||0);
+const holdersN= t => parseInt(t.holders_count||t.holders||0);
+const sym     = t => t.token_symbol||t.token_name||"?";
+const tokName = t => t.token_name||t.token_symbol||"—";
+const tokImg  = (t, customImg) => customImg || t.token_image || null;
+const tradeUrl= t => `https://rise.rich/trade/${t.rise_market_address||""}`;
+
+function gemScore(t){
+  const b = borrow(t);
+  const f = floorP(t) > 0 ? 1 : 0;
+  const h = Math.min(holdersN(t)/100, 1);
+  const m = Math.min(mcap(t)/10000, 1);
+  return b*4 + f*2 + h*2 + m;
+}
+
+function featuredCard(t, customImg, label){
+  const b = borrow(t);
+  const im = tokImg(t, customImg);
+  const url = tradeUrl(t);
+  return `
+  <div class="card featured-card" onclick="window.open('${url}','_blank')">
+    <div class="feat-img-wrap">
+      ${im
+        ? `<img class="feat-img" src="${im}" onerror="this.style.display='none'" alt="${sym(t)}"/>`
+        : `<div class="feat-img-ph">💎</div>`}
+      <span class="feat-spark fs1">✦</span>
+      <span class="feat-spark fs2">✦</span>
+      <span class="feat-spark fs3">✦</span>
+    </div>
+    <div class="feat-body">
+      <div class="feat-top">
+        <div><div class="feat-name">${label||tokName(t)}</div><div class="feat-sym">$${sym(t)}</div></div>
+      </div>
+      <div class="borrow-pill">
+        <div class="bp-left">
+          <div class="bp-lbl">🔥 Active Borrow</div>
+          <div class="bp-sub">${b>0?b.toFixed(2)+' SOL':'no borrow'}</div>
+        </div>
+        <div class="bp-val">${b>0?b.toFixed(1):'0'}</div>
+      </div>
+      <div class="feat-stats">
+        <div class="fs-item"><div class="fs-lbl">Floor</div><div class="fs-val purple">${fmtU(floorP(t))}</div></div>
+        <div class="fs-item"><div class="fs-lbl">Mkt Cap</div><div class="fs-val">${fmtU(mcap(t))}</div></div>
+        <div class="fs-item"><div class="fs-lbl">Holders</div><div class="fs-val">${holdersN(t)||'—'}</div></div>
+        <div class="fs-item"><div class="fs-lbl">Token</div><div class="fs-val orange">$${sym(t)}</div></div>
+      </div>
+      <a class="trade-btn-sm" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a>
+    </div>
+  </div>`;
+}
+
+function watchCard(t){
+  const b = borrow(t);
+  const im = tokImg(t, null);
+  const url = tradeUrl(t);
+  return `
+  <div class="card watch-card" onclick="window.open('${url}','_blank')">
+    <div class="watch-img-wrap">
+      ${im
+        ? `<img class="watch-img" src="${im}" onerror="this.style.display='none'" alt="${sym(t)}"/>`
+        : `<div class="watch-img-ph">💎</div>`}
+    </div>
+    <div class="watch-body">
+      <div><div class="watch-name">${tokName(t)}</div><div class="watch-sym">$${sym(t)}</div></div>
+      <div class="watch-stats">
+        <div class="ws-item"><div class="ws-lbl">Floor</div><div class="ws-val">${fmtU(floorP(t))}</div></div>
+        <div class="ws-item"><div class="ws-lbl">Mkt Cap</div><div class="ws-val">${fmtU(mcap(t))}</div></div>
+        <div class="ws-item"><div class="ws-lbl">Holders</div><div class="ws-val">${holdersN(t)||'—'}</div></div>
+        <div class="ws-item"><div class="ws-lbl">Borrow</div><div class="ws-val orange">${b>0?b.toFixed(2)+' SOL':'—'}</div></div>
+      </div>
+      ${b>0?`<div class="badges"><span class="bb">🔥 ${b.toFixed(2)} SOL</span></div>`:''}
+      <a class="trade-btn-sm" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a>
+    </div>
+  </div>`;
+}
+
+function renderRanking(list){
+  const el = document.getElementById("rankList");
+  if(!list.length){el.innerHTML='<div class="loading-state" style="padding:20px;font-size:12px">No tokens found</div>';return;}
+  const max = list[0]._score||1;
+  const medals=["🥇","🥈","🥉"], mc=["gold","silver","bronze"];
+  el.innerHTML = list.map((t,i)=>{
+    const pct = Math.round((t._score/max)*100);
+    const b = borrow(t);
+    const col = i===0?"#f59e0b":i===1?"#7c3aed":i===2?"#ea580c":"#94a3b8";
+    const im = tokImg(t,null);
+    const url = tradeUrl(t);
+    return `<div class="rank-row">
+      <div class="rank-pos ${i<3?mc[i]:''}">${i<3?medals[i]:'#'+(i+1)}</div>
+      ${im?`<img class="rank-img" src="${im}" onerror="this.style.display='none'" alt="${sym(t)}"/>` : `<div class="rank-img-ph">💎</div>`}
+      <div class="rank-info">
+        <div class="rank-name">${tokName(t)}</div>
+        <div class="rank-mc">${fmtU(mcap(t))}</div>
+      </div>
+      <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%;background:${col}"></div></div>
+      <div class="rank-pct">${pct}%</div>
+      ${b>0?`<span class="rank-bb">🔥${b.toFixed(1)}</span>`:''}
+      <a class="rank-trade" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade →</a>
+    </div>`;
+  }).join("");
+}
+
+async function loadAll(){
+  try {
+    const data = await api("/markets?limit=200&page=1");
+    const markets = data.markets||data.data||[];
+
+    // Find pinned in markets list, fallback to direct fetch
+    const pinnedTokens = await Promise.all(PINNED.map(async p => {
+      let t = markets.find(m => m.rise_market_address===p.addr || m.mint_token===p.addr);
+      if(!t){
+        try { t = await api("/markets/"+p.addr); } catch(e){}
+      }
+      return t ? {data: t, meta: p} : null;
+    }));
+
+    const validPinned = pinnedTokens.filter(Boolean);
+    document.getElementById("featuredGrid").innerHTML = validPinned.length
+      ? validPinned.map(p => featuredCard(p.data, p.meta.img, p.meta.label)).join("")
+      : '<div class="card" style="grid-column:1/-1"><div class="loading-state">Tokens not found 🔄</div></div>';
+
+    // Watch: top scored excluding pinned
+    const pinnedAddrs = PINNED.map(p=>p.addr);
+    const rest = markets
+      .filter(t => !pinnedAddrs.includes(t.rise_market_address) && !pinnedAddrs.includes(t.mint_token))
+      .map(t => ({...t, _score: gemScore(t)}))
+      .sort((a,b) => b._score - a._score);
+
+    document.getElementById("watchGrid").innerHTML = rest.slice(0,2).map(watchCard).join("") 
+      || "<div style='color:#aaa;font-size:12px;padding:20px'>No data</div>";
+
+    // Ranking under 500K, at least 1 holder
+    const ranked = rest
+      .filter(t => mcap(t) > 0 && mcap(t) < 500000 && holdersN(t) > 0)
+      .slice(0, 10);
+    renderRanking(ranked);
+
+    // JARRAD stats — direct fetch
+    try {
+      const j = await api("/markets/"+JARRAD_CA);
+      document.getElementById("jP").textContent = fmtU(j.price);
+      document.getElementById("jF").textContent = fmtU(j.mayflower_floor);
+      document.getElementById("jM").textContent = fmtU(j.market_cap_usd);
+      document.getElementById("jH").textContent = j.holders_count||"—";
+    } catch(e){ console.log("JARRAD stats err",e); }
+
+  } catch(e){
+    console.error(e);
+    document.getElementById("featuredGrid").innerHTML =
+      `<div class="card" style="grid-column:1/-1"><div class="loading-state">Error: ${e.message}</div></div>`;
+  }
+}
+
+function tick(){
+  countdown--;
+  const m=Math.floor(countdown/60), s=(countdown%60).toString().padStart(2,"0");
+  document.getElementById("refreshInfo").textContent=`Refreshing in ${m}:${s}`;
+  if(countdown<=0){countdown=REFRESH;loadAll();}
+}
+
+loadAll();
+setInterval(tick,1000);
+</script>
+</body>
+</html>
