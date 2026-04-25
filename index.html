@@ -161,7 +161,7 @@ const PINNED_ADDRS = [
 const REFRESH = 300;
 let countdown = REFRESH;
 
-const api = p => fetch(PROXY + encodeURIComponent(p)).then(r => { if(!r.ok) throw new Error(r.status); return r.json(); });
+const api = p => fetch(PROXY + encodeURIComponent(p)).then(r => { if(!r.ok) throw new Error(r.status); return r.json(); }).then(d => d.market !== undefined ? d.market : d);
 
 const fmtU = n => {
   n = parseFloat(n||0);
