@@ -13,7 +13,6 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .page-header{text-align:center;margin-bottom:32px}
 .page-header h1{font-size:26px;font-weight:700;color:#1a1a2e}
 .page-header h1 span{color:#7c3aed}
-.page-header p{font-size:13px;color:#666;margin-top:4px}
 .live-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:4px 12px;font-size:11px;color:#555;margin-top:10px}
 .live-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -23,11 +22,9 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
 .feat-img-wrap{position:relative;width:100%;height:160px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5)}
 .feat-img{width:100%;height:160px;object-fit:cover;object-position:center;display:block}
-.feat-img-ph{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:48px}
-.feat-spark{position:absolute;font-size:12px;animation:sparkle 2s infinite;pointer-events:none}
-.fs1{top:8px;right:10px;color:#fbbf24;animation-delay:0s}
-.fs2{bottom:8px;left:8px;color:#a78bfa;animation-delay:.7s}
-.fs3{top:50%;right:8px;color:#f472b6;animation-delay:.4s}
+.feat-ph{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:48px}
+.spark{position:absolute;font-size:12px;animation:sparkle 2s infinite;pointer-events:none}
+.s1{top:8px;right:10px;color:#fbbf24}.s2{bottom:8px;left:8px;color:#a78bfa;animation-delay:.7s}.s3{top:50%;right:8px;color:#f472b6;animation-delay:.4s}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
 .feat-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
 .feat-name{font-size:16px;font-weight:700;color:#1a1a2e}
@@ -40,30 +37,28 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .fs-item{background:rgba(124,58,237,.05);border-radius:8px;padding:8px}
 .fs-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
 .fs-val{font-size:12px;font-weight:600;color:#1a1a2e}
-.fs-val.purple{color:#7c3aed}
-.fs-val.orange{color:#ea580c}
+.fs-val.purple{color:#7c3aed}.fs-val.orange{color:#ea580c}
 .trade-btn-sm{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:8px;padding:10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:opacity .2s}
 .trade-btn-sm:hover{opacity:.88}
 .watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .watch-card{overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
 .watch-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.10)}
-.watch-img-wrap{width:100%;height:100px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5)}
-.watch-img{width:100%;height:100px;object-fit:cover;display:block}
+.watch-img-wrap{width:100%;height:100px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:32px}
+.watch-img{width:100%;height:100px;object-fit:cover;object-position:center;display:block}
 .watch-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
 .watch-name{font-size:14px;font-weight:700;color:#1a1a2e}
 .watch-sym{font-size:10px;color:#7c3aed;font-weight:500}
 .watch-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .ws-lbl{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
-.ws-val{font-size:11px;font-weight:600;color:#1a1a2e}
-.ws-val.orange{color:#ea580c}
+.ws-val{font-size:11px;font-weight:600;color:#1a1a2e}.ws-val.orange{color:#ea580c}
 .bb{display:inline-flex;align-items:center;gap:3px;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#92400e}
 .rank-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:background .15s}
 .rank-row:last-child{border-bottom:none}
 .rank-row:hover{background:rgba(124,58,237,.04)}
 .rank-pos{font-size:13px;font-weight:700;min-width:26px;text-align:center;color:#aaa}
 .rank-pos.gold{color:#f59e0b}.rank-pos.silver{color:#94a3b8}.rank-pos.bronze{color:#b45309}
-.rank-img{width:30px;height:30px;border-radius:6px;object-fit:cover;background:#f0f0f5;flex-shrink:0}
-.rank-img-ph{width:30px;height:30px;border-radius:6px;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.rank-img-wrap{width:30px;height:30px;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px}
+.rank-img{width:30px;height:30px;object-fit:cover;display:block}
 .rank-info{flex:0 0 90px}
 .rank-name{font-size:12px;font-weight:600;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rank-mc{font-size:10px;color:#7c3aed}
@@ -73,7 +68,6 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .rank-bb{font-size:9px;font-weight:700;padding:2px 5px;border-radius:5px;background:#fef3c7;color:#92400e;border:1px solid #fbbf24;white-space:nowrap}
 .rank-trade{font-size:10px;color:#7c3aed;font-weight:600;text-decoration:none;white-space:nowrap;padding:3px 8px;border:1px solid #7c3aed;border-radius:6px}
 .rank-trade:hover{background:#7c3aed;color:#fff}
-.refresh-info{font-size:11px;color:#aaa;text-align:right;margin-bottom:8px}
 .sidebar{display:flex;flex-direction:column;gap:14px}
 .j-photo{width:100%;height:190px;object-fit:cover;object-position:top;display:block}
 .j-body{padding:16px}
@@ -85,8 +79,7 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .j-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
 .j-stat{background:rgba(124,58,237,.06);border-radius:10px;padding:10px}
 .j-stat-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.j-stat-val{font-size:12px;font-weight:600;color:#1a1a2e}
-.j-stat-val.purple{color:#7c3aed}
+.j-stat-val{font-size:12px;font-weight:600;color:#1a1a2e}.j-stat-val.purple{color:#7c3aed}
 .trade-btn{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:10px;padding:13px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-bottom:10px;transition:opacity .2s}
 .trade-btn:hover{opacity:.9}
 .j-note{font-size:11px;color:#888;text-align:center;line-height:1.6}
@@ -94,8 +87,7 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .nav-card{padding:10px 12px}
 .nav-card a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;color:#444;font-size:12px;font-weight:500;transition:background .15s}
 .nav-card a:hover{background:rgba(124,58,237,.07);color:#7c3aed}
-.loading-state{display:flex;flex-direction:column;align-items:center;gap:12px;padding:50px 0;color:#aaa;font-size:12px}
-.spinner{width:28px;height:28px;border:2px solid #e0e0e0;border-top-color:#7c3aed;border-radius:50%;animation:spin .7s linear infinite}
+.spinner{width:24px;height:24px;border:2px solid #e0e0e0;border-top-color:#7c3aed;border-radius:50%;animation:spin .7s linear infinite;margin:40px auto;display:block}
 @keyframes spin{to{transform:rotate(360deg)}}
 .footer{text-align:center;padding:24px 0 8px;font-size:11px;color:#999;grid-column:1/-1}
 .footer a{color:#7c3aed;text-decoration:none;font-weight:500}
@@ -111,21 +103,13 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
       <div class="live-pill"><div class="live-dot"></div> Live · Scored by borrow, floor &amp; holders</div>
     </div>
     <div class="section-title">🔥 Top Gems of the moment</div>
-    <div class="featured-grid" id="featuredGrid">
-      <div class="card"><div class="loading-state"><div class="spinner"></div>Loading...</div></div>
-      <div class="card"><div class="loading-state"><div class="spinner"></div>Loading...</div></div>
-    </div>
-    <div class="refresh-info" id="refreshInfo" style="margin-top:16px">Refreshing in 5:00</div>
+    <div class="featured-grid" id="featuredGrid"><div class="card"><div style="padding:40px;text-align:center"><div class="spinner"></div></div></div><div class="card"><div style="padding:40px;text-align:center"><div class="spinner"></div></div></div></div>
+    <div style="text-align:right;font-size:11px;color:#aaa;margin:8px 0" id="refreshInfo">Refreshing in 5:00</div>
     <div class="section-title">👀 Also worth watching</div>
-    <div class="watch-grid" id="watchGrid">
-      <div class="card"><div class="loading-state" style="padding:30px 0"><div class="spinner"></div></div></div>
-      <div class="card"><div class="loading-state" style="padding:30px 0"><div class="spinner"></div></div></div>
-    </div>
+    <div class="watch-grid" id="watchGrid"><div class="card"><div style="padding:30px;text-align:center"><div class="spinner"></div></div></div><div class="card"><div style="padding:30px;text-align:center"><div class="spinner"></div></div></div></div>
     <div style="margin-top:24px">
       <div class="section-title">📊 Rising — under $500K mkt cap</div>
-      <div class="card" id="rankList" style="padding:4px 0">
-        <div class="loading-state" style="padding:30px 0"><div class="spinner"></div></div>
-      </div>
+      <div class="card" id="rankList" style="padding:4px 0"><div style="padding:30px;text-align:center"><div class="spinner"></div></div></div>
     </div>
   </div>
   <aside class="sidebar">
@@ -145,186 +129,36 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
         <div class="j-note">DYOR · <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · <a href="https://t.me/+nI5XvDjAfcMzOTFk" target="_blank">Telegram</a></div>
       </div>
     </div>
-    <div class="card nav-card">
-      <a href="https://jarra-driseboard.vercel.app" target="_blank">📊 &nbsp;JARRAD RiseBoard</a>
-    </div>
+    <div class="card nav-card"><a href="https://jarra-driseboard.vercel.app" target="_blank">📊 &nbsp;JARRAD RiseBoard</a></div>
   </aside>
   <div class="footer">powered by <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · data from rise.rich · DYOR</div>
 </div>
 <script>
-const PROXY = "https://jarra-driseboard.vercel.app/api/proxy?path=";
-const JARRAD_CA = "G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise";
-const PINNED_ADDRS = [
-  "3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise", // Just Borrow
-  "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH"  // Rubbery Plastic
-];
-const TOKEN_IMGS = {
-  'C1vzzmcEF1SQdRX2azpkW5OQXoYdYjTPWn5epVAUjmZz': 'https://i.imgur.com/201sD4n.jpg',
-  '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH': 'https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp'
+const PROXY="https://jarra-driseboard.vercel.app/api/proxy?path=";
+const JARRAD="G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise";
+const PINNED=["3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise","83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH"];
+const IMGS={
+  "3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise":"/just-borrow.jpg",
+  "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH":"https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp"
 };
-const REFRESH = 300;
-let countdown = REFRESH;
-
-const api = p => fetch(PROXY + encodeURIComponent(p)).then(r => { if(!r.ok) throw new Error(r.status); return r.json(); }).then(d => d.market !== undefined ? d.market : d);
-
-const fmtU = n => {
-  n = parseFloat(n||0);
-  if(!n) return "—";
-  if(n>=1e6) return "$"+(n/1e6).toFixed(2)+"M";
-  if(n>=1000) return "$"+(n/1e3).toFixed(1)+"K";
-  if(n<0.001) return "$"+n.toFixed(8);
-  return "$"+n.toFixed(6);
-};
-
-const borrow   = t => parseFloat(t.mayflower_total_debt||0)/1e9;
-const mcap     = t => parseFloat(t.market_cap_usd||0);
-const floorP   = t => parseFloat(t.mayflower_floor||0);
-const holdersN = t => parseInt(t.holders_count||t.holders||0);
-const sym      = t => (t.token_symbol&&t.token_symbol!=="?")?t.token_symbol:(t.token_name||"?");
-const tokName  = t => t.token_name||t.token_symbol||"—";
-const tradeUrl = t => `https://rise.rich/trade/${t.rise_market_address||""}`;
-
-// Convert IPFS URL to working gateway
-const resolveImg = (url, addr) => {
-  if(addr && TOKEN_IMGS[addr]) return TOKEN_IMGS[addr];
-  return null;
-};
-
-function gemScore(t){
-  return borrow(t)*4 + (floorP(t)>0?2:0) + Math.min(holdersN(t)/100,2) + Math.min(mcap(t)/50000,1);
-}
-
-function featuredCard(t){
-  const b = borrow(t);
-  const im = resolveImg(t.token_image, t.rise_market_address);
-  const url = tradeUrl(t);
-  return `
-  <div class="card featured-card" onclick="window.open('${url}','_blank')">
-    <div class="feat-img-wrap">
-      ${im ? `<img class="feat-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>` : `<div class="feat-img-ph">💎</div>`}
-      <span class="feat-spark fs1">✦</span><span class="feat-spark fs2">✦</span><span class="feat-spark fs3">✦</span>
-    </div>
-    <div class="feat-body">
-      <div><div class="feat-name">${tokName(t)}</div><div class="feat-sym">$${sym(t)}</div></div>
-      <div class="borrow-pill">
-        <div><div class="bp-lbl">🔥 Active Borrow</div><div class="bp-sub">${b>0?b.toFixed(3)+' SOL':'no borrow'}</div></div>
-        <div class="bp-val">${b>0?b.toFixed(1):'0'}</div>
-      </div>
-      <div class="feat-stats">
-        <div class="fs-item"><div class="fs-lbl">Floor</div><div class="fs-val purple">${fmtU(floorP(t))}</div></div>
-        <div class="fs-item"><div class="fs-lbl">Mkt Cap</div><div class="fs-val">${fmtU(mcap(t))}</div></div>
-        <div class="fs-item"><div class="fs-lbl">Holders</div><div class="fs-val">${holdersN(t)||'—'}</div></div>
-        <div class="fs-item"><div class="fs-lbl">Price</div><div class="fs-val orange">${fmtU(t.price)}</div></div>
-      </div>
-      <a class="trade-btn-sm" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a>
-    </div>
-  </div>`;
-}
-
-function watchCard(t){
-  const b = borrow(t);
-  const im = resolveImg(t.token_image, t.rise_market_address);
-  const url = tradeUrl(t);
-  return `
-  <div class="card watch-card" onclick="window.open('${url}','_blank')">
-    <div class="watch-img-wrap">
-      ${im ? `<img class="watch-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>` : ''}
-    </div>
-    <div class="watch-body">
-      <div><div class="watch-name">${tokName(t)}</div><div class="watch-sym">$${sym(t)}</div></div>
-      <div class="watch-stats">
-        <div><div class="ws-lbl">Floor</div><div class="ws-val">${fmtU(floorP(t))}</div></div>
-        <div><div class="ws-lbl">Mkt Cap</div><div class="ws-val">${fmtU(mcap(t))}</div></div>
-        <div><div class="ws-lbl">Holders</div><div class="ws-val">${holdersN(t)||'—'}</div></div>
-        <div><div class="ws-lbl">Borrow</div><div class="ws-val orange">${b>0?b.toFixed(2)+' SOL':'—'}</div></div>
-      </div>
-      ${b>0?`<div><span class="bb">🔥 ${b.toFixed(2)} SOL</span></div>`:''}
-      <a class="trade-btn-sm" href="${url}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a>
-    </div>
-  </div>`;
-}
-
-function renderRanking(list){
-  const el = document.getElementById("rankList");
-  if(!list.length){el.innerHTML='<div class="loading-state" style="padding:20px;font-size:12px">No tokens found</div>';return;}
-  const max = list[0]._score||1;
-  const medals=["🥇","🥈","🥉"], mc=["gold","silver","bronze"];
-  el.innerHTML = list.map((t,i)=>{
-    const pct=Math.round((t._score/max)*100);
-    const b=borrow(t);
-    const col=i===0?"#f59e0b":i===1?"#7c3aed":i===2?"#ea580c":"#94a3b8";
-    const im=resolveImg(t.token_image);
-    return `<div class="rank-row" onclick="window.open('${tradeUrl(t)}','_blank')">
-      <div class="rank-pos ${i<3?mc[i]:''}">${i<3?medals[i]:'#'+(i+1)}</div>
-      ${im?`<img class="rank-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>`:`<div class="rank-img-ph">💎</div>`}
-      <div class="rank-info"><div class="rank-name">${tokName(t)}</div><div class="rank-mc">${fmtU(mcap(t))}</div></div>
-      <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%;background:${col}"></div></div>
-      <div class="rank-pct">${pct}%</div>
-      ${b>0?`<span class="rank-bb">🔥${b.toFixed(1)}</span>`:''}
-      <a class="rank-trade" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade →</a>
-    </div>`;
-  }).join("");
-}
-
-async function loadAll(){
-  try {
-    // Fetch page 1 + pinned tokens directly (parallel)
-    const [data, ...pinnedResults] = await Promise.all([
-      api("/markets?limit=200&page=1"),
-      ...PINNED_ADDRS.map(addr => api("/markets/"+addr).catch(()=>null))
-    ]);
-
-    const markets = data.markets || data.data || [];
-
-    // Use direct fetch for pinned (most reliable), fallback to page search
-    const pinned = PINNED_ADDRS.map((addr, i) => {
-      const direct = pinnedResults[i];
-      if(direct && direct.rise_market_address) return direct;
-      return markets.find(m => m.rise_market_address===addr || m.mint_token===addr) || null;
-    }).filter(Boolean);
-
-    document.getElementById("featuredGrid").innerHTML = pinned.length
-      ? pinned.map(featuredCard).join("")
-      : '<div class="card" style="grid-column:1/-1"><div class="loading-state">Tokens not found 🔄</div></div>';
-
-    // Watch: top scored excluding pinned
-    const rest = markets
-      .filter(t => !PINNED_ADDRS.includes(t.rise_market_address) && !PINNED_ADDRS.includes(t.mint_token))
-      .map(t => ({...t, _score: gemScore(t)}))
-      .sort((a,b) => b._score - a._score);
-
-    document.getElementById("watchGrid").innerHTML = rest.slice(0,2).map(watchCard).join("")
-      || "<div style='color:#aaa;font-size:12px;padding:20px'>No data</div>";
-
-    // Ranking
-    const ranked = rest.filter(t => mcap(t)>0 && mcap(t)<500000).slice(0,10);
-    renderRanking(ranked);
-
-    // JARRAD stats
-    try {
-      const j = await api("/markets/"+JARRAD_CA);
-      document.getElementById("jP").textContent = fmtU(j.price);
-      document.getElementById("jF").textContent = fmtU(j.mayflower_floor);
-      document.getElementById("jM").textContent = fmtU(j.market_cap_usd);
-      document.getElementById("jH").textContent = j.holders_count || "—";
-    } catch(e){ console.warn("JARRAD stats:", e.message); }
-
-  } catch(e){
-    console.error(e);
-    document.getElementById("featuredGrid").innerHTML =
-      `<div class="card" style="grid-column:1/-1"><div class="loading-state">Error: ${e.message}</div></div>`;
-  }
-}
-
-function tick(){
-  countdown--;
-  const m=Math.floor(countdown/60), s=(countdown%60).toString().padStart(2,"0");
-  document.getElementById("refreshInfo").textContent=`Refreshing in ${m}:${s}`;
-  if(countdown<=0){countdown=REFRESH;loadAll();}
-}
-
-loadAll();
-setInterval(tick,1000);
+let countdown=300;
+const api=p=>fetch(PROXY+encodeURIComponent(p)).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(d=>d.market!==undefined?d.market:d);
+const fmtU=n=>{n=parseFloat(n||0);if(!n)return"—";if(n>=1e6)return"$"+(n/1e6).toFixed(2)+"M";if(n>=1000)return"$"+(n/1e3).toFixed(1)+"K";if(n<0.001)return"$"+n.toFixed(8);return"$"+n.toFixed(6);};
+const borrow=t=>parseFloat(t.mayflower_total_debt||0)/1e9;
+const mcap=t=>parseFloat(t.market_cap_usd||0);
+const floorP=t=>parseFloat(t.mayflower_floor||0);
+const holders=t=>parseInt(t.holders_count||t.holders||0);
+const sym=t=>t.token_symbol||t.token_name||"?";
+const tokName=t=>t.token_name||t.token_symbol||"—";
+const tradeUrl=t=>"https://rise.rich/trade/"+(t.rise_market_address||"");
+const tokImg=t=>IMGS[t.rise_market_address]||null;
+const score=t=>borrow(t)*4+(floorP(t)>0?2:0)+Math.min(holders(t)/100,2)+Math.min(mcap(t)/50000,1);
+function featCard(t){const b=borrow(t);const im=tokImg(t);return`<div class="card featured-card" onclick="window.open('${tradeUrl(t)}','_blank')"><div class="feat-img-wrap">${im?`<img class="feat-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>`:`<div class="feat-ph">💎</div>`}<span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span></div><div class="feat-body"><div><div class="feat-name">${tokName(t)}</div><div class="feat-sym">$${sym(t)}</div></div><div class="borrow-pill"><div><div class="bp-lbl">🔥 Active Borrow</div><div class="bp-sub">${b>0?b.toFixed(3)+' SOL':'no borrow'}</div></div><div class="bp-val">${b>0?b.toFixed(1):'0'}</div></div><div class="feat-stats"><div class="fs-item"><div class="fs-lbl">Floor</div><div class="fs-val purple">${fmtU(floorP(t))}</div></div><div class="fs-item"><div class="fs-lbl">Mkt Cap</div><div class="fs-val">${fmtU(mcap(t))}</div></div><div class="fs-item"><div class="fs-lbl">Holders</div><div class="fs-val">${holders(t)||'—'}</div></div><div class="fs-item"><div class="fs-lbl">Price</div><div class="fs-val orange">${fmtU(t.price)}</div></div></div><a class="trade-btn-sm" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a></div></div>`;}
+function watchCard(t){const b=borrow(t);const im=tokImg(t);return`<div class="card watch-card" onclick="window.open('${tradeUrl(t)}','_blank')"><div class="watch-img-wrap">${im?`<img class="watch-img" src="${im}" alt="${sym(t)}" onerror="this.parentElement.innerHTML='💎'"/>`:'💎'}</div><div class="watch-body"><div><div class="watch-name">${tokName(t)}</div><div class="watch-sym">$${sym(t)}</div></div><div class="watch-stats"><div><div class="ws-lbl">Floor</div><div class="ws-val">${fmtU(floorP(t))}</div></div><div><div class="ws-lbl">Mkt Cap</div><div class="ws-val">${fmtU(mcap(t))}</div></div><div><div class="ws-lbl">Holders</div><div class="ws-val">${holders(t)||'—'}</div></div><div><div class="ws-lbl">Borrow</div><div class="ws-val orange">${b>0?b.toFixed(2)+' SOL':'—'}</div></div></div>${b>0?`<div><span class="bb">🔥 ${b.toFixed(2)} SOL</span></div>`:''}<a class="trade-btn-sm" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a></div></div>`;}
+function renderRanking(list){const el=document.getElementById("rankList");if(!list.length){el.innerHTML='<div style="padding:20px;text-align:center;color:#aaa;font-size:12px">No tokens found</div>';return;}const max=list[0]._score||1;const medals=["🥇","🥈","🥉"],mc=["gold","silver","bronze"];el.innerHTML=list.map((t,i)=>{const pct=Math.round((t._score/max)*100);const b=borrow(t);const col=i===0?"#f59e0b":i===1?"#7c3aed":i===2?"#ea580c":"#94a3b8";const im=tokImg(t);return`<div class="rank-row" onclick="window.open('${tradeUrl(t)}','_blank')"><div class="rank-pos ${i<3?mc[i]:''}">${i<3?medals[i]:'#'+(i+1)}</div><div class="rank-img-wrap">${im?`<img class="rank-img" src="${im}" alt="${sym(t)}"/>`:'💎'}</div><div class="rank-info"><div class="rank-name">${tokName(t)}</div><div class="rank-mc">${fmtU(mcap(t))}</div></div><div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%;background:${col}"></div></div><div class="rank-pct">${pct}%</div>${b>0?`<span class="rank-bb">🔥${b.toFixed(1)}</span>`:''}<a class="rank-trade" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade →</a></div>`;}).join("");}
+async function loadAll(){try{const[data,...pd]=await Promise.all([api("/markets?limit=200&page=1"),...PINNED.map(a=>api("/markets/"+a).catch(()=>null))]);const markets=data.markets||data.data||[];const pinned=PINNED.map((addr,i)=>{const d=pd[i];if(d&&d.rise_market_address)return d;return markets.find(m=>m.rise_market_address===addr)||null;}).filter(Boolean);document.getElementById("featuredGrid").innerHTML=pinned.length?pinned.map(featCard).join(""):'<div class="card" style="grid-column:1/-1;padding:40px;text-align:center;color:#aaa">Tokens not found</div>';const rest=markets.filter(t=>!PINNED.includes(t.rise_market_address)).map(t=>({...t,_score:score(t)})).sort((a,b)=>b._score-a._score);document.getElementById("watchGrid").innerHTML=rest.slice(0,2).map(watchCard).join("")||"<div style='color:#aaa;font-size:12px;padding:20px'>No data</div>";renderRanking(rest.filter(t=>mcap(t)>0&&mcap(t)<500000).slice(0,10));try{const j=await api("/markets/"+JARRAD);document.getElementById("jP").textContent=fmtU(j.price);document.getElementById("jF").textContent=fmtU(j.mayflower_floor);document.getElementById("jM").textContent=fmtU(j.market_cap_usd);document.getElementById("jH").textContent=j.holders_count||"—";}catch(e){}}catch(e){document.getElementById("featuredGrid").innerHTML=`<div class="card" style="grid-column:1/-1;padding:40px;text-align:center;color:#aaa">Error: ${e.message}</div>`;}}
+function tick(){countdown--;const m=Math.floor(countdown/60),s=(countdown%60).toString().padStart(2,"0");document.getElementById("refreshInfo").textContent=`Refreshing in ${m}:${s}`;if(countdown<=0){countdown=300;loadAll();}}
+loadAll();setInterval(tick,1000);
 </script>
 </body>
 </html>
