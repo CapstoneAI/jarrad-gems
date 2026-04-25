@@ -1,164 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JARRAD Gems 💎</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(135deg,#f5c6a0 0%,#f0b8c8 30%,#e8b4e8 60%,#c8b4f0 100%);background-attachment:fixed}
-.layout{display:grid;grid-template-columns:1fr 300px;max-width:1100px;margin:0 auto;padding:40px 20px;gap:28px;align-items:start}
-.card{background:rgba(255,255,255,0.78);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.9);border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
-.page-header{text-align:center;margin-bottom:32px}
-.page-header h1{font-size:26px;font-weight:700;color:#1a1a2e}
-.page-header h1 span{color:#7c3aed}
-.live-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.8);border-radius:20px;padding:4px 12px;font-size:11px;color:#555;margin-top:10px}
-.live-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.section-title{font-size:11px;font-weight:600;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
-.featured-card{padding:0;cursor:pointer;transition:transform .2s,box-shadow .2s;overflow:hidden;display:flex;flex-direction:column}
-.featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
-.feat-img-wrap{position:relative;width:100%;height:160px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5)}
-.feat-img{width:100%;height:160px;object-fit:contain;background:#f5f0ff;display:block}
-.feat-ph{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:48px}
-.spark{position:absolute;font-size:12px;animation:sparkle 2s infinite;pointer-events:none}
-.s1{top:8px;right:10px;color:#fbbf24}.s2{bottom:8px;left:8px;color:#a78bfa;animation-delay:.7s}.s3{top:50%;right:8px;color:#f472b6;animation-delay:.4s}
-@keyframes sparkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
-.feat-body{padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
-.feat-name{font-size:16px;font-weight:700;color:#1a1a2e}
-.feat-sym{font-size:11px;color:#7c3aed;font-weight:500;margin-top:2px}
-.borrow-pill{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:1.5px solid #fbbf24;border-radius:10px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
-.bp-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#d97706;margin-bottom:2px}
-.bp-sub{font-size:10px;color:#b45309}
-.bp-val{font-size:22px;font-weight:700;color:#92400e;line-height:1}
-.feat-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.fs-item{background:rgba(124,58,237,.05);border-radius:8px;padding:8px}
-.fs-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
-.fs-val{font-size:12px;font-weight:600;color:#1a1a2e}
-.fs-val.purple{color:#7c3aed}.fs-val.orange{color:#ea580c}
-.trade-btn-sm{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:8px;padding:10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:opacity .2s}
-.trade-btn-sm:hover{opacity:.88}
-.watch-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.watch-card{overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
-.watch-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.10)}
-.watch-img-wrap{width:100%;height:100px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);display:flex;align-items:center;justify-content:center;font-size:32px}
-.watch-img{width:100%;height:100px;object-fit:cover;object-position:center;display:block}
-.watch-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
-.watch-name{font-size:14px;font-weight:700;color:#1a1a2e}
-.watch-sym{font-size:10px;color:#7c3aed;font-weight:500}
-.watch-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ws-lbl{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-bottom:1px}
-.ws-val{font-size:11px;font-weight:600;color:#1a1a2e}.ws-val.orange{color:#ea580c}
-.bb{display:inline-flex;align-items:center;gap:3px;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#92400e}
-.rank-row{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:background .15s}
-.rank-row:last-child{border-bottom:none}
-.rank-row:hover{background:rgba(124,58,237,.04)}
-.rank-pos{font-size:13px;font-weight:700;min-width:26px;text-align:center;color:#aaa}
-.rank-pos.gold{color:#f59e0b}.rank-pos.silver{color:#94a3b8}.rank-pos.bronze{color:#b45309}
-.rank-img-wrap{width:30px;height:30px;border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px}
-.rank-img{width:30px;height:30px;object-fit:cover;display:block}
-.rank-info{flex:0 0 90px}
-.rank-name{font-size:12px;font-weight:600;color:#1a1a2e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rank-mc{font-size:10px;color:#7c3aed}
-.rank-bar-wrap{flex:1;height:5px;background:rgba(0,0,0,.07);border-radius:3px;overflow:hidden}
-.rank-bar{height:100%;border-radius:3px}
-.rank-pct{font-size:12px;font-weight:700;min-width:38px;text-align:right;color:#1a1a2e}
-.rank-bb{font-size:9px;font-weight:700;padding:2px 5px;border-radius:5px;background:#fef3c7;color:#92400e;border:1px solid #fbbf24;white-space:nowrap}
-.rank-trade{font-size:10px;color:#7c3aed;font-weight:600;text-decoration:none;white-space:nowrap;padding:3px 8px;border:1px solid #7c3aed;border-radius:6px}
-.rank-trade:hover{background:#7c3aed;color:#fff}
-.sidebar{display:flex;flex-direction:column;gap:14px}
-.j-photo{width:100%;height:190px;object-fit:cover;object-position:top;display:block}
-.j-body{padding:16px}
-.j-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.j-name{font-size:18px;font-weight:700;color:#1a1a2e}
-.j-sub{font-size:11px;color:#7c3aed;font-weight:500;margin-top:2px}
-.j-hn{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px}
-.j-hv{font-size:20px;font-weight:700;color:#7c3aed}
-.j-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
-.j-stat{background:rgba(124,58,237,.06);border-radius:10px;padding:10px}
-.j-stat-lbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.j-stat-val{font-size:12px;font-weight:600;color:#1a1a2e}.j-stat-val.purple{color:#7c3aed}
-.trade-btn{display:block;width:100%;background:linear-gradient(135deg,#7c3aed,#9d5cf7);color:#fff;border:none;border-radius:10px;padding:13px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;margin-bottom:10px;transition:opacity .2s}
-.trade-btn:hover{opacity:.9}
-.j-note{font-size:11px;color:#888;text-align:center;line-height:1.6}
-.j-note a{color:#7c3aed;text-decoration:none;font-weight:500}
-.nav-card{padding:10px 12px}
-.nav-card a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;text-decoration:none;color:#444;font-size:12px;font-weight:500;transition:background .15s}
-.nav-card a:hover{background:rgba(124,58,237,.07);color:#7c3aed}
-.spinner{width:24px;height:24px;border:2px solid #e0e0e0;border-top-color:#7c3aed;border-radius:50%;animation:spin .7s linear infinite;margin:40px auto;display:block}
-@keyframes spin{to{transform:rotate(360deg)}}
-.footer{text-align:center;padding:24px 0 8px;font-size:11px;color:#999;grid-column:1/-1}
-.footer a{color:#7c3aed;text-decoration:none;font-weight:500}
-@media(max-width:800px){.layout{grid-template-columns:1fr}.featured-grid,.watch-grid{grid-template-columns:1fr}}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-from: #fdd6a8;
+    --bg-to:   #d4b8f0;
+    --card-bg: rgba(255,255,255,0.82);
+    --card-border: rgba(255,255,255,0.6);
+    --text-primary: #1a1228;
+    --text-secondary: #6b5b8e;
+    --text-muted: #9b8bae;
+    --accent-purple: #7c3aed;
+    --accent-purple-hover: #6d28d9;
+    --accent-orange: #f59e0b;
+    --accent-orange-bg: #fff7ed;
+    --accent-orange-border: #fde68a;
+    --price-color: #c026d3;
+    --borrow-color: #d97706;
+    --floor-label: #6b7280;
+    --radius: 18px;
+    --radius-sm: 10px;
+    --shadow: 0 4px 24px rgba(100,60,180,0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+    --shadow-card: 0 8px 40px rgba(100,60,180,0.13), 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, var(--bg-from) 0%, #f9c5d1 35%, var(--bg-to) 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    padding: 32px 20px 64px;
+  }
+
+  .layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 28px; }
+  .header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #1a1228;
+  }
+  .header h1 .gems { color: #7c3aed; }
+  .subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 4px 0 12px;
+    font-weight: 400;
+  }
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 99px;
+    padding: 5px 14px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    backdrop-filter: blur(8px);
+  }
+  .live-dot {
+    width: 8px; height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
+    50% { box-shadow: 0 0 0 6px rgba(34,197,94,0.10); }
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 28px; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, rgba(124,58,237,0.15), transparent);
+  }
+
+  /* ── PINNED CARDS (Top Gems) ── */
+  .pinned-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .pinned-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pinned-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(100,60,180,0.18), 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  /* FIX #1 & #3: Image area with robust fallback */
+  .pinned-img-wrap {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #e9d5ff 0%, #fbcfe8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .pinned-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .img-fallback {
+    font-size: 3rem;
+    opacity: 0.5;
+  }
+
+  .pinned-body { padding: 14px 16px 16px; }
+  .token-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .token-symbol {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  /* Borrow badge */
+  .borrow-badge {
+    background: var(--accent-orange-bg);
+    border: 1px solid var(--accent-orange-border);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .borrow-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--borrow-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .borrow-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+  .borrow-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--borrow-color);
+    letter-spacing: -0.02em;
+  }
+
+  /* Stats grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+    margin-bottom: 12px;
+  }
+  .stat { }
+  .stat-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--floor-label);
+  }
+  .stat-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 1px;
+  }
+  .stat-value.price { color: var(--price-color); }
+
+  /* Trade button */
+  .trade-btn {
+    display: block;
+    width: 100%;
+    background: var(--accent-purple);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s ease;
+  }
+  .trade-btn:hover { background: var(--accent-purple-hover); }
+
+  /* Loading state */
+  .skeleton {
+    background: linear-gradient(90deg, rgba(200,180,230,0.3) 25%, rgba(200,180,230,0.6) 50%, rgba(200,180,230,0.3) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: 6px;
+    height: 14px;
+  }
+  @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+  /* ── ALSO WATCHING ── */
+  .also-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .also-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  .also-card:hover { transform: translateY(-2px); }
+
+  /* FIX #4: IPFS image with diamond fallback */
+  .also-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .also-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .diamond-placeholder {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 8px rgba(124,58,237,0.3));
+  }
+
+  .also-body { padding: 12px 14px 14px; }
+  .also-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+  .also-symbol {
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .also-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 10px;
+    margin-bottom: 10px;
+  }
+  .borrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--accent-orange-bg);
+    border: 1px solid var(--accent-orange-border);
+    border-radius: 99px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--borrow-color);
+    margin-bottom: 10px;
+  }
+
+  /* ── RISING RANKING ── */
+  .rising-list { display: flex; flex-direction: column; gap: 10px; }
+  .rising-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.15s ease;
+  }
+  .rising-item:hover { transform: translateX(2px); }
+  .rising-rank {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .rising-info { min-width: 0; }
+  .rising-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rising-symbol {
+    font-size: 0.70rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .score-wrap { text-align: right; min-width: 90px; }
+  .score-bar-bg {
+    width: 80px;
+    height: 6px;
+    background: rgba(124,58,237,0.12);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-bottom: 4px;
+  }
+  .score-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, #7c3aed, #c026d3);
+    border-radius: 99px;
+    transition: width 0.6s ease;
+  }
+  .score-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .rising-trade-btn {
+    display: inline-block;
+    background: var(--accent-purple);
+    color: #fff;
+    border-radius: 7px;
+    padding: 5px 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .rising-trade-btn:hover { background: var(--accent-purple-hover); }
+
+  /* Rising full item with trade btn */
+  .rising-item-full {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 28px 1fr auto auto;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.15s ease;
+  }
+  .rising-item-full:hover { transform: translateX(2px); }
+
+  /* ── SIDEBAR ── */
+  aside { position: sticky; top: 24px; }
+  .jarrad-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .jarrad-photo {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #e9d5ff, #fbcfe8);
+  }
+  .jarrad-body { padding: 16px; }
+  .jarrad-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+  .jarrad-sub {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .jarrad-holders-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--floor-label);
+    text-align: right;
+  }
+  .jarrad-holders-val {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-align: right;
+    line-height: 1;
+  }
+  .jarrad-stats-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 12px;
+  }
+  .jarrad-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .jarrad-stat {
+    background: rgba(124,58,237,0.04);
+    border: 1px solid rgba(124,58,237,0.08);
+    border-radius: 10px;
+    padding: 8px 10px;
+  }
+  .jarrad-stat-label {
+    font-size: 0.60rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--floor-label);
+  }
+  .jarrad-stat-val {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 2px;
+  }
+  .jarrad-trade-btn {
+    display: block;
+    width: 100%;
+    background: var(--accent-purple);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 11px 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s ease;
+    margin-bottom: 10px;
+  }
+  .jarrad-trade-btn:hover { background: var(--accent-purple-hover); }
+  .jarrad-links {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .jarrad-links a {
+    color: var(--accent-purple);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .jarrad-links a:hover { text-decoration: underline; }
+
+  .riseboard-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .riseboard-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(100,60,180,0.15);
+  }
+
+  .refresh-info {
+    font-size: 0.70rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-bottom: 8px;
+  }
+
+  .error-msg {
+    background: rgba(239,68,68,0.07);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: #b91c1c;
+    margin: 8px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .layout { grid-template-columns: 1fr; }
+    .pinned-grid, .also-grid { grid-template-columns: 1fr; }
+    aside { position: static; }
+  }
 </style>
 </head>
 <body>
 <div class="layout">
-  <div>
-    <div class="page-header">
-      <h1>JARRAD <span>Gems</span> 💎</h1>
-      <p>The most interesting tokens on rise.rich right now</p>
-      <div class="live-pill"><div class="live-dot"></div> Live · Scored by borrow, floor &amp; holders</div>
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main>
+    <div class="header">
+      <h1>JARRAD <span class="gems">Gems</span> 💎</h1>
+      <p class="subtitle">The most interesting tokens on rise.rich right now</p>
+      <span class="live-badge"><span class="live-dot"></span> Live · Scored by borrow, floor &amp; holders</span>
     </div>
-    <div class="section-title">🔥 Top Gems of the moment</div>
-    <div class="featured-grid" id="featuredGrid"><div class="card"><div style="padding:40px;text-align:center"><div class="spinner"></div></div></div><div class="card"><div style="padding:40px;text-align:center"><div class="spinner"></div></div></div></div>
-    <div style="text-align:right;font-size:11px;color:#aaa;margin:8px 0" id="refreshInfo">Refreshing in 5:00</div>
-    <div class="section-title">👀 Also worth watching</div>
-    <div class="watch-grid" id="watchGrid"><div class="card"><div style="padding:30px;text-align:center"><div class="spinner"></div></div></div><div class="card"><div style="padding:30px;text-align:center"><div class="spinner"></div></div></div></div>
-    <div style="margin-top:24px">
-      <div class="section-title">📊 Rising — under $500K mkt cap</div>
-      <div class="card" id="rankList" style="padding:4px 0"><div style="padding:30px;text-align:center"><div class="spinner"></div></div></div>
-    </div>
-  </div>
-  <aside class="sidebar">
-    <div class="card" style="overflow:hidden">
-      <img class="j-photo" src="https://i.imgur.com/iic5bON.jpg" onerror="this.src='https://i.postimg.cc/cHTq8xcx/Panda.png'" alt="JARRAD"/>
-      <div class="j-body">
-        <div class="j-top">
-          <div><div class="j-name">JARRAD</div><div class="j-sub">$JARRAD · rise.rich</div></div>
-          <div style="text-align:right"><div class="j-hn">Holders</div><div class="j-hv" id="jH">—</div></div>
+
+    <!-- TOP GEMS -->
+    <section class="section">
+      <div class="section-label">🔥 Top Gems of the Moment</div>
+      <div class="pinned-grid" id="pinned-grid">
+        <!-- filled by JS -->
+        <div class="pinned-card"><div class="pinned-img-wrap"><div class="img-fallback">💎</div></div><div class="pinned-body"><div class="skeleton" style="width:60%;margin-bottom:8px"></div><div class="skeleton" style="width:40%;margin-bottom:12px"></div><div class="skeleton" style="height:48px;margin-bottom:10px;border-radius:10px"></div></div></div>
+        <div class="pinned-card"><div class="pinned-img-wrap"><div class="img-fallback">💎</div></div><div class="pinned-body"><div class="skeleton" style="width:60%;margin-bottom:8px"></div><div class="skeleton" style="width:40%;margin-bottom:12px"></div><div class="skeleton" style="height:48px;margin-bottom:10px;border-radius:10px"></div></div></div>
+      </div>
+    </section>
+
+    <!-- ALSO WORTH WATCHING -->
+    <section class="section">
+      <div class="section-label">💎 Also Worth Watching</div>
+      <div class="also-grid" id="also-grid">
+        <div class="also-card"><div class="also-img-wrap"><div class="diamond-placeholder">💎</div></div><div class="also-body"><div class="skeleton" style="width:70%;margin-bottom:8px"></div><div class="skeleton" style="width:50%;margin-bottom:10px"></div></div></div>
+        <div class="also-card"><div class="also-img-wrap"><div class="diamond-placeholder">💎</div></div><div class="also-body"><div class="skeleton" style="width:70%;margin-bottom:8px"></div><div class="skeleton" style="width:50%;margin-bottom:10px"></div></div></div>
+      </div>
+    </section>
+
+    <!-- RISING UNDER 500K -->
+    <section class="section">
+      <div class="section-label">📈 Rising Under 500K Mkt Cap</div>
+      <div class="refresh-info" id="refresh-timer">—</div>
+      <div class="rising-list" id="rising-list">
+        <!-- filled by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside>
+    <div class="jarrad-card">
+      <img class="jarrad-photo"
+           src="https://pbs.twimg.com/profile_images/1900266268009984000/u0bJFLBb_400x400.jpg"
+           alt="Jarrad"
+           onerror="this.style.display='none'">
+      <div class="jarrad-body">
+        <div class="jarrad-stats-header">
+          <div>
+            <div class="jarrad-name">JARRAD</div>
+            <div class="jarrad-sub">$JARRAD · rise.rich</div>
+          </div>
+          <div>
+            <div class="jarrad-holders-label">HOLDERS</div>
+            <div class="jarrad-holders-val" id="j-holders">—</div>
+          </div>
         </div>
-        <div class="j-stats">
-          <div class="j-stat"><div class="j-stat-lbl">Price</div><div class="j-stat-val" id="jP">—</div></div>
-          <div class="j-stat"><div class="j-stat-lbl">Floor</div><div class="j-stat-val purple" id="jF">—</div></div>
-          <div class="j-stat" style="grid-column:1/-1"><div class="j-stat-lbl">Market Cap</div><div class="j-stat-val" id="jM">—</div></div>
+        <div class="jarrad-stats-grid">
+          <div class="jarrad-stat">
+            <div class="jarrad-stat-label">Price</div>
+            <div class="jarrad-stat-val" id="j-price">—</div>
+          </div>
+          <div class="jarrad-stat">
+            <div class="jarrad-stat-label">Floor</div>
+            <div class="jarrad-stat-val" id="j-floor">—</div>
+          </div>
+          <div class="jarrad-stat" style="grid-column:1/-1">
+            <div class="jarrad-stat-label">Market Cap</div>
+            <div class="jarrad-stat-val" id="j-mcap">—</div>
+          </div>
         </div>
-        <a class="trade-btn" href="https://rise.rich/trade/G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise" target="_blank">Trade $JARRAD →</a>
-        <div class="j-note">DYOR · <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · <a href="https://t.me/+nI5XvDjAfcMzOTFk" target="_blank">Telegram</a></div>
+        <a class="jarrad-trade-btn"
+           href="https://rise.rich/trade/G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise"
+           target="_blank">Trade $JARRAD →</a>
+        <div class="jarrad-links">
+          DYOR ·
+          <a href="https://twitter.com/jarradceorise" target="_blank">@jarradceorise</a>
+          ·
+          <a href="https://t.me/+nI5XvDjAfcMzOTFk" target="_blank">Telegram</a>
+        </div>
       </div>
     </div>
-    <div class="card nav-card"><a href="https://jarra-driseboard.vercel.app" target="_blank">📊 &nbsp;JARRAD RiseBoard</a></div>
+    <a class="riseboard-btn"
+       href="https://rise.rich/@jarradceorise"
+       target="_blank">
+      📊 JARRAD RiseBoard
+    </a>
   </aside>
-  <div class="footer">powered by <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a> · data from rise.rich · DYOR</div>
 </div>
+
 <script>
-const PROXY="https://jarra-driseboard.vercel.app/api/proxy?path=";
-const JARRAD="G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise";
-const PINNED=["C1vzzmcEF1SQdRX2azpkW5OQXoYdYjTPWn5epVAUjmZz","83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH"];
-const IMGS={
-  "C1vzzmcEF1SQdRX2azpkW5OQXoYdYjTPWn5epVAUjmZz":"/just-borrow.jpg","C1vzzmcEF1SQdRX2azpkW5OQXoYdYjTPWn5epVAUjmZz":"/just-borrow.jpg","C1vzzmcEF1SQdRX2azpkW5OQXoYdYjTPWn5epVAUjmZz":"/just-borrow.jpg",
-  "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH":"https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp"
-};
-let countdown=300;
-const api=p=>fetch(PROXY+encodeURIComponent(p)).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(d=>d.market!==undefined?d.market:d);
-const fmtU=n=>{n=parseFloat(n||0);if(!n)return"—";if(n>=1e6)return"$"+(n/1e6).toFixed(2)+"M";if(n>=1000)return"$"+(n/1e3).toFixed(1)+"K";if(n<0.001)return"$"+n.toFixed(8);return"$"+n.toFixed(6);};
-const borrow=t=>parseFloat(t.mayflower_total_debt||0)/1e9;
-const mcap=t=>parseFloat(t.market_cap_usd||0);
-const floorP=t=>parseFloat(t.mayflower_floor||0);
-const holders=t=>parseInt(t.holders_count||t.holders||0);
-const sym=t=>t.token_symbol||t.token_name||"?";
-const tokName=t=>t.token_name||t.token_symbol||"—";
-const tradeUrl=t=>"https://rise.rich/trade/"+(t.rise_market_address||"");
-const tokImg=t=>{const m=IMGS[t.rise_market_address];if(m)return m;const ti=t.token_image||"";if(ti.startsWith("https://"))return ti;return null;};
-const score=t=>borrow(t)*4+(floorP(t)>0?2:0)+Math.min(holders(t)/100,2)+Math.min(mcap(t)/50000,1);
-function featCard(t){const b=borrow(t);const im=tokImg(t);return`<div class="card featured-card" onclick="window.open('${tradeUrl(t)}','_blank')"><div class="feat-img-wrap">${im?`<img class="feat-img" src="${im}" alt="${sym(t)}" onerror="this.style.display='none'"/>`:`<div class="feat-ph">💎</div>`}<span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span></div><div class="feat-body"><div><div class="feat-name">${tokName(t)}</div><div class="feat-sym">$${sym(t)}</div></div><div class="borrow-pill"><div><div class="bp-lbl">🔥 Active Borrow</div><div class="bp-sub">${b>0?b.toFixed(3)+' SOL':'no borrow'}</div></div><div class="bp-val">${b>0?b.toFixed(1):'0'}</div></div><div class="feat-stats"><div class="fs-item"><div class="fs-lbl">Floor</div><div class="fs-val purple">${fmtU(floorP(t))}</div></div><div class="fs-item"><div class="fs-lbl">Mkt Cap</div><div class="fs-val">${fmtU(mcap(t))}</div></div><div class="fs-item"><div class="fs-lbl">Holders</div><div class="fs-val">${holders(t)||'—'}</div></div><div class="fs-item"><div class="fs-lbl">Price</div><div class="fs-val orange">${fmtU(t.price)}</div></div></div><a class="trade-btn-sm" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a></div></div>`;}
-function watchCard(t){const b=borrow(t);const im=tokImg(t);return`<div class="card watch-card" onclick="window.open('${tradeUrl(t)}','_blank')"><div class="watch-img-wrap">${im?`<img class="watch-img" src="${im}" alt="${sym(t)}" onerror="this.parentElement.innerHTML='💎'"/>`:'💎'}</div><div class="watch-body"><div><div class="watch-name">${tokName(t)}</div><div class="watch-sym">$${sym(t)}</div></div><div class="watch-stats"><div><div class="ws-lbl">Floor</div><div class="ws-val">${fmtU(floorP(t))}</div></div><div><div class="ws-lbl">Mkt Cap</div><div class="ws-val">${fmtU(mcap(t))}</div></div><div><div class="ws-lbl">Holders</div><div class="ws-val">${holders(t)||'—'}</div></div><div><div class="ws-lbl">Borrow</div><div class="ws-val orange">${b>0?b.toFixed(2)+' SOL':'—'}</div></div></div>${b>0?`<div><span class="bb">🔥 ${b.toFixed(2)} SOL</span></div>`:''}<a class="trade-btn-sm" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade $${sym(t)} →</a></div></div>`;}
-function renderRanking(list){const el=document.getElementById("rankList");if(!list.length){el.innerHTML='<div style="padding:20px;text-align:center;color:#aaa;font-size:12px">No tokens found</div>';return;}const max=list[0]._score||1;const medals=["🥇","🥈","🥉"],mc=["gold","silver","bronze"];el.innerHTML=list.map((t,i)=>{const pct=Math.round((t._score/max)*100);const b=borrow(t);const col=i===0?"#f59e0b":i===1?"#7c3aed":i===2?"#ea580c":"#94a3b8";const im=tokImg(t);return`<div class="rank-row" onclick="window.open('${tradeUrl(t)}','_blank')"><div class="rank-pos ${i<3?mc[i]:''}">${i<3?medals[i]:'#'+(i+1)}</div><div class="rank-img-wrap">${im?`<img class="rank-img" src="${im}" alt="${sym(t)}"/>`:'💎'}</div><div class="rank-info"><div class="rank-name">${tokName(t)}</div><div class="rank-mc">${fmtU(mcap(t))}</div></div><div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%;background:${col}"></div></div><div class="rank-pct">${pct}%</div>${b>0?`<span class="rank-bb">🔥${b.toFixed(1)}</span>`:''}<a class="rank-trade" href="${tradeUrl(t)}" target="_blank" onclick="event.stopPropagation()">Trade →</a></div>`;}).join("");}
-async function loadAll(){try{const[data,...pd]=await Promise.all([api("/markets?limit=200&page=1"),...PINNED.map(a=>api("/markets/"+a).catch(()=>null))]);const markets=data.markets||data.data||[];const pinned=PINNED.map((addr,i)=>{const d=pd[i];if(d&&d.rise_market_address)return d;return markets.find(m=>m.rise_market_address===addr)||null;}).filter(Boolean);document.getElementById("featuredGrid").innerHTML=pinned.length?pinned.map(featCard).join(""):'<div class="card" style="grid-column:1/-1;padding:40px;text-align:center;color:#aaa">Tokens not found</div>';const rest=markets.filter(t=>!PINNED.includes(t.rise_market_address)).map(t=>({...t,_score:score(t)})).sort((a,b)=>b._score-a._score);const jb=pd[0]&&pd[0].token_name?pd[0]:null;const watchList=jb?[jb,rest[0]].filter(Boolean):rest.slice(0,2);document.getElementById("watchGrid").innerHTML=watchList.map(watchCard).join("")||"<div style='color:#aaa;font-size:12px;padding:20px'>No data</div>";renderRanking(rest.filter(t=>mcap(t)>0&&mcap(t)<500000).slice(0,10));try{const j=await api("/markets/"+JARRAD);document.getElementById("jP").textContent=fmtU(j.price);document.getElementById("jF").textContent=fmtU(j.mayflower_floor);document.getElementById("jM").textContent=fmtU(j.market_cap_usd);document.getElementById("jH").textContent=j.holders_count||"—";}catch(e){}}catch(e){document.getElementById("featuredGrid").innerHTML=`<div class="card" style="grid-column:1/-1;padding:40px;text-align:center;color:#aaa">Error: ${e.message}</div>`;}}
-function tick(){countdown--;const m=Math.floor(countdown/60),s=(countdown%60).toString().padStart(2,"0");document.getElementById("refreshInfo").textContent=`Refreshing in ${m}:${s}`;if(countdown<=0){countdown=300;loadAll();}}
-loadAll();setInterval(tick,1000);
+// ═══ CONFIG ═══
+const PROXY      = 'https://jarra-driseboard.vercel.app/api/proxy?path=';
+const RISE_TRADE = 'https://rise.rich/trade/';
+
+const JARRAD_ADDR  = 'G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise';
+
+// FIX #3: entrambe le card pinned con metadati hardcoded
+// FIX #1 & #2: Just Borrow con nome/simbolo/immagine hardcoded per evitare API vuota
+const PINNED = [
+  {
+    address: '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH',
+    name:    'Rubbery Plastic',
+    symbol:  'PLASTIC',
+    image:   'https://i.postimg.cc/J03V3XwJ/QmUbHngksvPc2hNkioAhQRtEtLk9WEx51hbYzU7LC6c4Rx.webp',
+  },
+  {
+    address: '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise',
+    name:    'Just Borrow',
+    symbol:  'JB',
+    image:   '/just-borrow.jpg',       // FIX #1: path corretto, onerror gestito sotto
+    imageFallback: '/just-borrow.webp' // tenta anche webp se jpg fallisce
+  },
+];
+
+// ═══ HELPERS ═══
+function fmtPrice(v) {
+  if (v == null || isNaN(v)) return '—';
+  if (v >= 1) return '$' + v.toFixed(2);
+  return '$' + Number(v).toPrecision(4);
+}
+function fmtCompact(v) {
+  if (v == null || isNaN(v)) return '—';
+  if (v >= 1e6) return '$' + (v/1e6).toFixed(2) + 'M';
+  if (v >= 1e3) return '$' + (v/1e3).toFixed(1) + 'K';
+  return '$' + v.toFixed(0);
+}
+function fmtSol(v) {
+  if (v == null || isNaN(v)) return '—';
+  return v.toFixed(3) + ' SOL';
+}
+function fmtBorrowShort(v) {
+  if (v == null || isNaN(v)) return '0.0';
+  if (v >= 1000) return (v/1000).toFixed(1) + 'K';
+  return v.toFixed(1);
+}
+
+// Scoring formula: borrow*4 + (floor>0?2:0) + min(holders/100,2) + min(mcap/50000,1)
+function calcScore(m) {
+  const borrow  = parseBorrow(m);
+  const floor   = parseFloat(m.floor_price  ?? m.min_price ?? 0);
+  const holders = parseInt(m.holder_count   ?? m.holders   ?? 0);
+  const mcap    = parseFloat(m.market_cap_usd ?? m.market_cap ?? 0);
+  return borrow*4 + (floor > 0 ? 2 : 0) + Math.min(holders/100, 2) + Math.min(mcap/50000, 1);
+}
+
+function parseBorrow(m) {
+  const raw = parseFloat(m.mayflower_total_debt ?? 0);
+  return raw / 1e9;
+}
+
+// FIX #4: converte ipfs:// → public gateway; onerror → placeholder diamante
+function resolveImage(uri) {
+  if (!uri) return null;
+  if (uri.startsWith('ipfs://')) {
+    const cid = uri.replace('ipfs://', '');
+    return `https://cf-ipfs.com/ipfs/${cid}`;
+  }
+  return uri;
+}
+
+function imgWithFallback(src, fallbackSrc, cls, altEmoji = '💎') {
+  if (!src) return `<div class="${cls}"><div class="diamond-placeholder">${altEmoji}</div></div>`;
+
+  const fallbackHtml = fallbackSrc
+    ? `this.src='${fallbackSrc}'; this.onerror=function(){this.style.display='none';this.parentNode.innerHTML='<div class=&quot;diamond-placeholder&quot;>${altEmoji}</div>';};`
+    : `this.style.display='none';this.parentNode.innerHTML='<div class=&quot;diamond-placeholder&quot;>${altEmoji}</div>';`;
+
+  return `<div class="${cls}"><img src="${src}" loading="lazy" onerror="${fallbackHtml}" alt=""></div>`;
+}
+
+// ═══ API FETCH ═══
+async function fetchToken(address) {
+  try {
+    const res  = await fetch(`${PROXY}/markets/${address}`);
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error ?? 'API error');
+    return json.data; // FIX #2: dati direttamente in .data, NO wrapper .market
+  } catch(e) {
+    console.warn('fetchToken error', address, e);
+    return null;
+  }
+}
+
+async function fetchAllMarkets() {
+  try {
+    const res  = await fetch(`${PROXY}/markets`);
+    const json = await res.json();
+    return json.markets ?? [];
+  } catch(e) {
+    console.warn('fetchAllMarkets error', e);
+    return [];
+  }
+}
+
+// ═══ RENDER PINNED CARD ═══
+function renderPinned(meta, data) {
+  const name   = meta.name;
+  const symbol = meta.symbol;
+  const borrow = data ? parseBorrow(data) : null;
+  const floor  = data ? parseFloat(data.floor_price ?? data.min_price ?? 0) : null;
+  const mcap   = data ? parseFloat(data.market_cap_usd ?? data.market_cap ?? 0) : null;
+  const holders= data ? parseInt(data.holder_count ?? data.holders ?? 0) : null;
+  const price  = data ? parseFloat(data.price ?? data.last_price ?? 0) : null;
+  const borrowRaw = data ? data.mayflower_total_debt : null;
+
+  // FIX #1: immagine con doppio fallback jpg → webp → emoji
+  const imgHtml = imgWithFallback(meta.image, meta.imageFallback ?? null, 'pinned-img-wrap', '💎');
+
+  const borrowHtml = (borrow !== null && borrow > 0)
+    ? `<div class="borrow-badge">
+         <div>
+           <div class="borrow-label">🔥 Active Borrow</div>
+           <div class="borrow-sub">${fmtSol(borrowRaw ? borrowRaw/1e9 : borrow)}</div>
+         </div>
+         <div class="borrow-value">${fmtBorrowShort(borrow)}</div>
+       </div>`
+    : `<div class="borrow-badge" style="opacity:0.5">
+         <div><div class="borrow-label">Active Borrow</div></div>
+         <div class="borrow-value">—</div>
+       </div>`;
+
+  return `
+    ${imgHtml}
+    <div class="pinned-body">
+      <div class="token-name">${name}</div>
+      <div class="token-symbol">$${symbol}</div>
+      ${borrowHtml}
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-label">Floor</div>
+          <div class="stat-value">${fmtPrice(floor)}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Mkt Cap</div>
+          <div class="stat-value">${fmtCompact(mcap)}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Holders</div>
+          <div class="stat-value">${holders ?? '—'}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Price</div>
+          <div class="stat-value price">${fmtPrice(price)}</div>
+        </div>
+      </div>
+      <a class="trade-btn" href="${RISE_TRADE}${meta.address}" target="_blank">
+        Trade $${symbol} →
+      </a>
+    </div>`;
+}
+
+// ═══ RENDER ALSO WATCHING ═══
+function renderAlso(market) {
+  const name   = market.token_name   ?? market.name   ?? 'Unknown';
+  const symbol = market.token_symbol ?? market.symbol ?? '?';
+  const borrow = parseBorrow(market);
+  const floor  = parseFloat(market.floor_price  ?? market.min_price ?? 0);
+  const mcap   = parseFloat(market.market_cap_usd ?? market.market_cap ?? 0);
+  const holders= parseInt(market.holder_count   ?? market.holders ?? 0);
+  const addr   = market.rise_market_address ?? market.address ?? '';
+
+  // FIX #4: IPFS image → public gateway, onerror → diamond
+  const rawImg = market.image_uri ?? market.image ?? null;
+  const imgSrc = resolveImage(rawImg);
+  const imgHtml = imgWithFallback(imgSrc, null, 'also-img-wrap', '💎');
+
+  return `<div class="also-card">
+    ${imgHtml}
+    <div class="also-body">
+      <div class="also-name">${name}</div>
+      <div class="also-symbol">$${symbol}</div>
+      <div class="also-stats">
+        <div class="stat"><div class="stat-label">Floor</div><div class="stat-value">${fmtPrice(floor)}</div></div>
+        <div class="stat"><div class="stat-label">Mkt Cap</div><div class="stat-value">${fmtCompact(mcap)}</div></div>
+        <div class="stat"><div class="stat-label">Holders</div><div class="stat-value">${holders}</div></div>
+        <div class="stat"><div class="stat-label">Borrow</div><div class="stat-value">${fmtSol(borrow)}</div></div>
+      </div>
+      ${borrow > 0 ? `<div class="borrow-pill">🔥 ${fmtSol(borrow)}</div>` : ''}
+      <a class="trade-btn" href="${RISE_TRADE}${addr}" target="_blank">Trade $${symbol} →</a>
+    </div>
+  </div>`;
+}
+
+// ═══ RENDER RISING ═══
+function renderRising(market, rank, maxScore) {
+  const name   = market.token_name   ?? market.name   ?? 'Unknown';
+  const symbol = market.token_symbol ?? market.symbol ?? '?';
+  const score  = calcScore(market);
+  const addr   = market.rise_market_address ?? market.address ?? '';
+  const pct    = maxScore > 0 ? Math.min(100, (score / maxScore) * 100) : 0;
+
+  return `<div class="rising-item-full">
+    <div class="rising-rank">#${rank}</div>
+    <div class="rising-info">
+      <div class="rising-name">${name}</div>
+      <div class="rising-symbol">$${symbol}</div>
+      <div class="score-bar-bg" style="margin:4px 0 0">
+        <div class="score-bar-fill" style="width:${pct.toFixed(1)}%"></div>
+      </div>
+    </div>
+    <div class="score-wrap">
+      <div class="score-label">score ${score.toFixed(1)}</div>
+    </div>
+    <a class="rising-trade-btn" href="${RISE_TRADE}${addr}" target="_blank">Trade →</a>
+  </div>`;
+}
+
+// ═══ SIDEBAR: JARRAD stats ═══
+async function loadJarrad() {
+  const d = await fetchToken(JARRAD_ADDR);
+  if (!d) return;
+  document.getElementById('j-holders').textContent = d.holder_count ?? d.holders ?? '—';
+  document.getElementById('j-price').textContent   = fmtPrice(d.price ?? d.last_price);
+  document.getElementById('j-floor').textContent   = fmtPrice(d.floor_price ?? d.min_price);
+  document.getElementById('j-mcap').textContent    = fmtCompact(d.market_cap_usd ?? d.market_cap);
+}
+
+// ═══ REFRESH TIMER ═══
+let refreshIn = 300; // 5 min
+function tickTimer() {
+  const m = Math.floor(refreshIn / 60);
+  const s = refreshIn % 60;
+  const el = document.getElementById('refresh-timer');
+  if (el) el.textContent = `Refreshing in ${m}:${s.toString().padStart(2,'0')}`;
+  refreshIn--;
+  if (refreshIn < 0) { refreshIn = 300; loadAll(); }
+}
+
+// ═══ MAIN LOAD ═══
+async function loadAll() {
+  const pinnedAddresses = new Set(PINNED.map(p => p.address));
+
+  // 1. Pinned cards in parallelo
+  const [d0, d1] = await Promise.all([
+    fetchToken(PINNED[0].address),
+    fetchToken(PINNED[1].address),
+  ]);
+
+  const grid = document.getElementById('pinned-grid');
+  const cards = [
+    Object.assign(document.createElement('div'), { className: 'pinned-card' }),
+    Object.assign(document.createElement('div'), { className: 'pinned-card' }),
+  ];
+  cards[0].innerHTML = renderPinned(PINNED[0], d0);
+  cards[1].innerHTML = renderPinned(PINNED[1], d1);
+  grid.innerHTML = '';
+  grid.append(...cards);
+
+  // 2. All markets per also + rising
+  const all = await fetchAllMarkets();
+  const others = all.filter(m => {
+    const addr = m.rise_market_address ?? m.address ?? '';
+    return !pinnedAddresses.has(addr);
+  });
+
+  // Score & sort
+  const scored = others
+    .map(m => ({ m, score: calcScore(m) }))
+    .sort((a, b) => b.score - a.score);
+
+  // Also watching: top 2
+  const alsoGrid = document.getElementById('also-grid');
+  if (scored.length >= 2) {
+    alsoGrid.innerHTML = scored.slice(0, 2).map(s => renderAlso(s.m)).join('');
+  } else if (scored.length === 1) {
+    alsoGrid.innerHTML = renderAlso(scored[0].m);
+  } else {
+    alsoGrid.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">No data available.</p>';
+  }
+
+  // Rising under 500K mcap
+  const rising = scored.filter(s => {
+    const mcap = parseFloat(s.m.market_cap_usd ?? s.m.market_cap ?? 0);
+    return mcap < 500000 && mcap > 0;
+  });
+
+  const maxScore = rising.length > 0 ? rising[0].score : 1;
+  const risingList = document.getElementById('rising-list');
+  if (rising.length > 0) {
+    risingList.innerHTML = rising
+      .slice(0, 15)
+      .map((s, i) => renderRising(s.m, i+1, maxScore))
+      .join('');
+  } else {
+    risingList.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">No markets under 500K found.</p>';
+  }
+
+  // Jarrad sidebar
+  await loadJarrad();
+}
+
+// ═══ BOOT ═══
+loadAll();
+setInterval(tickTimer, 1000);
+tickTimer();
 </script>
 </body>
 </html>
