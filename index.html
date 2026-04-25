@@ -22,7 +22,7 @@ body{font-family:'Inter',sans-serif;min-height:100vh;background:linear-gradient(
 .featured-card{padding:0;cursor:pointer;transition:transform .2s,box-shadow .2s;overflow:hidden;display:flex;flex-direction:column}
 .featured-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
 .feat-img-wrap{position:relative;width:100%;height:160px;overflow:hidden;background:linear-gradient(135deg,#e8d5f5,#d5e8f5)}
-.feat-img{width:100%;height:160px;object-fit:cover;display:block}
+.feat-img{width:100%;height:160px;object-fit:cover;object-position:center;display:block}
 .feat-img-ph{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:48px}
 .feat-spark{position:absolute;font-size:12px;animation:sparkle 2s infinite;pointer-events:none}
 .fs1{top:8px;right:10px;color:#fbbf24;animation-delay:0s}
@@ -159,7 +159,7 @@ const PINNED_ADDRS = [
   "83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH"  // Rubbery Plastic
 ];
 const TOKEN_IMGS = {
-  '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise': '/just-borrow.webp',
+  '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise': 'https://nftstorage.link/ipfs/QmYioTbwvxeMzSdvTyCfv8D4JXeQfwC7BBHAFeaGsbo6nU',
   '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH': 'https://i.postimg.cc/J03V3XwJ/Qm-Ub-Hngksv-Pc2h-Nkio-Ah-QRt-Et-Lk9WEx51hb-Yz-U7LC6c4Rx.webp'
 };
 const REFRESH = 300;
