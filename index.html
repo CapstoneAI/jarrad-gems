@@ -188,7 +188,7 @@ const tradeUrl = t => `https://rise.rich/trade/${t.rise_market_address||""}`;
 const resolveImg = (url, addr) => {
   if(addr && TOKEN_IMGS[addr]) return TOKEN_IMGS[addr];
   if(!url) return null;
-  if(url.startsWith("ipfs://")) return "https://nftstorage.link/ipfs/"+url.slice(7);
+  if(url.startsWith("ipfs://")) return "https://cf-ipfs.com/ipfs/"+url.slice(7);
   return url;
 };
 
