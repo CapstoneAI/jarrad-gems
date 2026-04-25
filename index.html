@@ -183,8 +183,8 @@ const tradeUrl = t => `https://rise.rich/trade/${t.rise_market_address||""}`;
 // Convert IPFS URL to working gateway
 const resolveImg = url => {
   if(!url) return null;
-  if(url.startsWith("ipfs://")) return "https://cloudflare-ipfs.com/ipfs/"+url.slice(7);
-  if(url.includes("ipfs.io/ipfs/")) return url.replace("https://ipfs.io/ipfs/","https://cloudflare-ipfs.com/ipfs/"); return url;
+  if(url.startsWith("ipfs://")) return "https://nftstorage.link/ipfs/"+url.slice(7);
+  return url;
 };
 
 function gemScore(t){
