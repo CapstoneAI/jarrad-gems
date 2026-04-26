@@ -20,7 +20,6 @@
     --text-muted: #9b8bae;
     --accent-purple: #7c3aed;
     --accent-purple-hover: #6d28d9;
-    --accent-orange: #f59e0b;
     --accent-orange-bg: #fff7ed;
     --accent-orange-border: #fde68a;
     --price-color: #c026d3;
@@ -51,79 +50,56 @@
 
   /* ── HEADER ── */
   .header { margin-bottom: 28px; }
-  .header h1 {
-    font-size: 2.4rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: #1a1228;
-  }
+  .header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; color: #1a1228; }
   .header h1 .gems { color: #7c3aed; }
-  .subtitle {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin: 4px 0 12px;
-    font-weight: 400;
+  .subtitle { font-size: 1rem; color: var(--text-secondary); margin: 4px 0 12px; font-weight: 400; }
+
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
   .live-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(255,255,255,0.7);
-    border: 1px solid rgba(255,255,255,0.9);
-    border-radius: 99px;
-    padding: 5px 14px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    backdrop-filter: blur(8px);
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 99px; padding: 5px 14px; font-size: 0.82rem;
+    font-weight: 500; color: var(--text-secondary); backdrop-filter: blur(8px);
   }
   .live-dot {
-    width: 8px; height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
-    animation: pulse 2s infinite;
+    width: 8px; height: 8px; background: #22c55e; border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(34,197,94,0.25); animation: pulse 2s infinite;
   }
   @keyframes pulse {
     0%,100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
-    50% { box-shadow: 0 0 0 6px rgba(34,197,94,0.10); }
+    50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0.10); }
+  }
+  .scan-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.18);
+    border-radius: 99px; padding: 5px 13px; font-size: 0.80rem;
+    font-weight: 600; color: var(--accent-purple); backdrop-filter: blur(8px);
   }
 
   /* ── SECTION ── */
   .section { margin-bottom: 28px; }
   .section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-secondary);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 7px;
   }
   .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
+    content: ''; flex: 1; height: 1px;
     background: linear-gradient(to right, rgba(124,58,237,0.15), transparent);
   }
 
-  /* ── PINNED CARDS (Top Gems) ── */
-  .pinned-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  /* ── PINNED CARDS ── */
+  .pinned-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   .pinned-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-card);
-    backdrop-filter: blur(12px);
-    overflow: hidden;
-    position: relative;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: var(--radius); box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px); overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .pinned-card:hover {
@@ -131,476 +107,235 @@
     box-shadow: 0 12px 48px rgba(100,60,180,0.18), 0 2px 8px rgba(0,0,0,0.08);
   }
 
-  /* FIX #1 & #3: Image area with robust fallback */
   .pinned-img-wrap {
-    width: 100%;
-    aspect-ratio: 16/9;
+    width: 100%; aspect-ratio: 16/9;
     background: linear-gradient(135deg, #e9d5ff 0%, #fbcfe8 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
-  .pinned-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .img-fallback {
-    font-size: 3rem;
-    opacity: 0.5;
-  }
-
+  .pinned-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .img-fallback { font-size: 3rem; opacity: 0.5; }
   .pinned-body { padding: 14px 16px 16px; }
-  .token-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 2px;
-  }
-  .token-symbol {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-  }
+  .token-name { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+  .token-symbol { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; }
 
-  /* Borrow badge */
   .borrow-badge {
-    background: var(--accent-orange-bg);
-    border: 1px solid var(--accent-orange-border);
-    border-radius: var(--radius-sm);
-    padding: 8px 12px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background: var(--accent-orange-bg); border: 1px solid var(--accent-orange-border);
+    border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .borrow-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--borrow-color);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .borrow-sub {
-    font-size: 0.68rem;
-    color: var(--text-muted);
-    margin-top: 1px;
-  }
-  .borrow-value {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: var(--borrow-color);
-    letter-spacing: -0.02em;
-  }
+  .borrow-label { font-size: 0.72rem; font-weight: 600; color: var(--borrow-color); text-transform: uppercase; letter-spacing: 0.05em; }
+  .borrow-sub   { font-size: 0.68rem; color: var(--text-muted); margin-top: 1px; }
+  .borrow-value { font-size: 1.35rem; font-weight: 800; color: var(--borrow-color); letter-spacing: -0.02em; }
 
-  /* Stats grid */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 10px;
-    margin-bottom: 12px;
-  }
-  .stat { }
-  .stat-label {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--floor-label);
-  }
-  .stat-value {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-top: 1px;
-  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin-bottom: 12px; }
+  .stat-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--floor-label); }
+  .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-top: 1px; }
   .stat-value.price { color: var(--price-color); }
 
-  /* Trade button */
   .trade-btn {
-    display: block;
-    width: 100%;
-    background: var(--accent-purple);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 10px 0;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    transition: background 0.15s ease;
+    display: block; width: 100%; background: var(--accent-purple); color: #fff;
+    border: none; border-radius: var(--radius-sm); padding: 10px 0;
+    font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; text-align: center; transition: background 0.15s ease;
   }
   .trade-btn:hover { background: var(--accent-purple-hover); }
 
-  /* Loading state */
   .skeleton {
     background: linear-gradient(90deg, rgba(200,180,230,0.3) 25%, rgba(200,180,230,0.6) 50%, rgba(200,180,230,0.3) 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.4s infinite;
-    border-radius: 6px;
-    height: 14px;
+    background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 6px; height: 14px;
   }
   @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
-  /* ── ALSO WATCHING ── */
-  .also-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .also-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-    transition: transform 0.2s ease;
-  }
-  .also-card:hover { transform: translateY(-2px); }
-
-  /* FIX #4: IPFS image with diamond fallback */
-  .also-img-wrap {
-    width: 100%;
-    aspect-ratio: 3/2;
-    background: linear-gradient(135deg, #ede9fe 0%, #fce7f3 100%);
+  /* ── SIGNAL EXPLAINER ── */
+  .signal-box {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(124,58,237,0.12);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 14px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
+    gap: 20px;
+    flex-wrap: wrap;
   }
-  .also-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .diamond-placeholder {
-    font-size: 2.5rem;
-    filter: drop-shadow(0 2px 8px rgba(124,58,237,0.3));
-  }
+  .signal-item { display: flex; align-items: flex-start; gap: 8px; flex: 1; min-width: 140px; }
+  .signal-icon { font-size: 1.1rem; margin-top: 1px; }
+  .signal-text { }
+  .signal-title { font-size: 0.73rem; font-weight: 700; color: var(--text-primary); }
+  .signal-desc  { font-size: 0.67rem; color: var(--text-muted); margin-top: 1px; line-height: 1.4; }
 
-  .also-body { padding: 12px 14px 14px; }
-  .also-name {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 2px;
+  /* ── FILTER TABS ── */
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
   }
-  .also-symbol {
-    font-size: 0.73rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 8px;
+  .filter-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 99px; padding: 6px 14px;
+    font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+    color: var(--text-secondary); cursor: pointer; backdrop-filter: blur(8px);
+    transition: all 0.15s ease;
   }
-  .also-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px 10px;
-    margin-bottom: 10px;
-  }
-  .borrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--accent-orange-bg);
-    border: 1px solid var(--accent-orange-border);
-    border-radius: 99px;
-    padding: 4px 10px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--borrow-color);
-    margin-bottom: 10px;
+  .filter-btn:hover { background: rgba(124,58,237,0.08); border-color: rgba(124,58,237,0.25); color: var(--accent-purple); }
+  .filter-btn.active {
+    background: var(--accent-purple); border-color: var(--accent-purple);
+    color: #fff; box-shadow: 0 2px 10px rgba(124,58,237,0.3);
   }
 
   /* ── RISING RANKING ── */
+  .rising-meta {
+    font-size: 0.72rem; color: var(--text-muted);
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+  }
   .rising-list { display: flex; flex-direction: column; gap: 10px; }
-  .rising-item {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
-    padding: 12px 16px;
-    display: grid;
-    grid-template-columns: 28px 1fr auto;
-    align-items: center;
-    gap: 12px;
-    transition: transform 0.15s ease;
+
+  .rising-item-full {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm); box-shadow: var(--shadow); backdrop-filter: blur(10px);
+    padding: 12px 16px; display: grid; grid-template-columns: 28px 1fr auto auto;
+    align-items: center; gap: 12px; transition: transform 0.15s ease;
+    animation: fadeIn 0.25s ease both;
   }
-  .rising-item:hover { transform: translateX(2px); }
-  .rising-rank {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-align: center;
-  }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(4px); } to { opacity:1; transform: none; } }
+  .rising-item-full:hover { transform: translateX(2px); }
+
+  .rising-rank { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-align: center; }
   .rising-info { min-width: 0; }
-  .rising-name {
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .rising-symbol {
-    font-size: 0.70rem;
-    font-weight: 600;
-    color: var(--text-muted);
-  }
-  .score-wrap { text-align: right; min-width: 90px; }
-  .score-bar-bg {
-    width: 80px;
-    height: 6px;
-    background: rgba(124,58,237,0.12);
-    border-radius: 99px;
-    overflow: hidden;
-    margin-left: auto;
-    margin-bottom: 4px;
-  }
-  .score-bar-fill {
-    height: 100%;
-    background: linear-gradient(to right, #7c3aed, #c026d3);
-    border-radius: 99px;
-    transition: width 0.6s ease;
-  }
-  .score-label {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-  }
+  .rising-name { font-size: 0.92rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rising-symbol { font-size: 0.70rem; font-weight: 600; color: var(--text-muted); }
+
+  .score-bar-bg { width: 80px; height: 6px; background: rgba(124,58,237,0.12); border-radius: 99px; overflow: hidden; margin: 4px 0 0; }
+  .score-bar-fill { height: 100%; background: linear-gradient(to right, #7c3aed, #c026d3); border-radius: 99px; transition: width 0.6s ease; }
+  .score-label { font-size: 0.68rem; font-weight: 600; color: var(--text-secondary); text-align: right; }
+
   .rising-trade-btn {
-    display: inline-block;
-    background: var(--accent-purple);
-    color: #fff;
-    border-radius: 7px;
-    padding: 5px 12px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
+    display: inline-block; background: var(--accent-purple); color: #fff;
+    border-radius: 7px; padding: 5px 12px; font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem; font-weight: 600; text-decoration: none; white-space: nowrap;
     transition: background 0.15s ease;
   }
   .rising-trade-btn:hover { background: var(--accent-purple-hover); }
 
-  /* Rising full item with trade btn */
-  .rising-item-full {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
-    padding: 12px 16px;
-    display: grid;
-    grid-template-columns: 28px 1fr auto auto;
-    align-items: center;
-    gap: 12px;
-    transition: transform 0.15s ease;
-  }
-  .rising-item-full:hover { transform: translateX(2px); }
-
   /* ── SIDEBAR ── */
   aside { position: sticky; top: 24px; }
   .jarrad-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-card);
-    backdrop-filter: blur(12px);
-    overflow: hidden;
-    margin-bottom: 12px;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: var(--radius); box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px); overflow: hidden; margin-bottom: 12px;
   }
-  .jarrad-photo {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-    background: linear-gradient(135deg, #e9d5ff, #fbcfe8);
-  }
+  .jarrad-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: linear-gradient(135deg, #e9d5ff, #fbcfe8); }
   .jarrad-body { padding: 16px; }
-  .jarrad-name {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--text-primary);
-  }
-  .jarrad-sub {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-  }
-  .jarrad-holders-label {
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--floor-label);
-    text-align: right;
-  }
-  .jarrad-holders-val {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    text-align: right;
-    line-height: 1;
-  }
-  .jarrad-stats-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 12px;
-  }
-  .jarrad-stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-  .jarrad-stat {
-    background: rgba(124,58,237,0.04);
-    border: 1px solid rgba(124,58,237,0.08);
-    border-radius: 10px;
-    padding: 8px 10px;
-  }
-  .jarrad-stat-label {
-    font-size: 0.60rem;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--floor-label);
-  }
-  .jarrad-stat-val {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-top: 2px;
-  }
+  .jarrad-name { font-size: 1.25rem; font-weight: 800; color: var(--text-primary); }
+  .jarrad-sub  { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); margin-bottom: 14px; }
+  .jarrad-holders-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--floor-label); text-align: right; }
+  .jarrad-holders-val   { font-size: 1.6rem; font-weight: 800; color: var(--text-primary); text-align: right; line-height: 1; }
+  .jarrad-stats-header  { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; }
+  .jarrad-stats-grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+  .jarrad-stat          { background: rgba(124,58,237,0.04); border: 1px solid rgba(124,58,237,0.08); border-radius: 10px; padding: 8px 10px; }
+  .jarrad-stat-label    { font-size: 0.60rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--floor-label); }
+  .jarrad-stat-val      { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-top: 2px; }
   .jarrad-trade-btn {
-    display: block;
-    width: 100%;
-    background: var(--accent-purple);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: 11px 0;
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    transition: background 0.15s ease;
-    margin-bottom: 10px;
+    display: block; width: 100%; background: var(--accent-purple); color: #fff;
+    border: none; border-radius: var(--radius-sm); padding: 11px 0;
+    font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; text-align: center;
+    transition: background 0.15s ease; margin-bottom: 10px;
   }
   .jarrad-trade-btn:hover { background: var(--accent-purple-hover); }
-  .jarrad-links {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-align: center;
-  }
-  .jarrad-links a {
-    color: var(--accent-purple);
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .jarrad-links { font-size: 0.72rem; color: var(--text-muted); text-align: center; }
+  .jarrad-links a { color: var(--accent-purple); text-decoration: none; font-weight: 600; }
   .jarrad-links a:hover { text-decoration: underline; }
 
   .riseboard-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-sm);
-    padding: 12px 16px;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(10px);
-    text-decoration: none;
-    color: var(--text-primary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm); padding: 12px 16px; box-shadow: var(--shadow);
+    backdrop-filter: blur(10px); text-decoration: none; color: var(--text-primary);
+    font-size: 0.85rem; font-weight: 600; transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .riseboard-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(100,60,180,0.15);
-  }
+  .riseboard-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(100,60,180,0.15); }
 
-  .refresh-info {
-    font-size: 0.70rem;
-    color: var(--text-muted);
-    text-align: right;
-    margin-bottom: 8px;
-  }
+  .diamond-placeholder { font-size: 2.5rem; filter: drop-shadow(0 2px 8px rgba(124,58,237,0.3)); }
 
-  .error-msg {
-    background: rgba(239,68,68,0.07);
-    border: 1px solid rgba(239,68,68,0.2);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 0.8rem;
-    color: #b91c1c;
-    margin: 8px 0;
-  }
-
-  /* Responsive */
   @media (max-width: 768px) {
     .layout { grid-template-columns: 1fr; }
-    .pinned-grid, .also-grid { grid-template-columns: 1fr; }
+    .pinned-grid { grid-template-columns: 1fr; }
     aside { position: static; }
+    .signal-box { gap: 12px; }
   }
 </style>
 </head>
 <body>
 <div class="layout">
-  <!-- ═══ MAIN CONTENT ═══ -->
   <main>
     <div class="header">
       <h1>JARRAD <span class="gems">Gems</span> 💎</h1>
-      <p class="subtitle">The most interesting tokens on rise.rich right now</p>
-      <span class="live-badge"><span class="live-dot"></span> Live · Scored by borrow, floor &amp; holders</span>
+      <p class="subtitle">rise.rich senza il rumore — solo i token che meritano attenzione</p>
+      <div class="header-meta">
+        <span class="live-badge"><span class="live-dot"></span> Live · aggiornato ogni 5 min</span>
+        <span class="scan-badge">🔍 <span id="scan-count">—</span> token scansionati</span>
+      </div>
     </div>
 
     <!-- TOP GEMS -->
     <section class="section">
       <div class="section-label">🔥 Top Gems of the Moment</div>
       <div class="pinned-grid" id="pinned-grid">
-        <!-- filled by JS -->
         <div class="pinned-card"><div class="pinned-img-wrap"><div class="img-fallback">💎</div></div><div class="pinned-body"><div class="skeleton" style="width:60%;margin-bottom:8px"></div><div class="skeleton" style="width:40%;margin-bottom:12px"></div><div class="skeleton" style="height:48px;margin-bottom:10px;border-radius:10px"></div></div></div>
         <div class="pinned-card"><div class="pinned-img-wrap"><div class="img-fallback">💎</div></div><div class="pinned-body"><div class="skeleton" style="width:60%;margin-bottom:8px"></div><div class="skeleton" style="width:40%;margin-bottom:12px"></div><div class="skeleton" style="height:48px;margin-bottom:10px;border-radius:10px"></div></div></div>
-      </div>
-    </section>
-
-    <!-- ALSO WORTH WATCHING -->
-    <section class="section">
-      <div class="section-label">💎 Also Worth Watching</div>
-      <div class="also-grid" id="also-grid">
-        <div class="also-card"><div class="also-img-wrap"><div class="diamond-placeholder">💎</div></div><div class="also-body"><div class="skeleton" style="width:70%;margin-bottom:8px"></div><div class="skeleton" style="width:50%;margin-bottom:10px"></div></div></div>
-        <div class="also-card"><div class="also-img-wrap"><div class="diamond-placeholder">💎</div></div><div class="also-body"><div class="skeleton" style="width:70%;margin-bottom:8px"></div><div class="skeleton" style="width:50%;margin-bottom:10px"></div></div></div>
       </div>
     </section>
 
     <!-- RISING UNDER 500K -->
     <section class="section">
       <div class="section-label">📈 Rising Under 500K Mkt Cap</div>
-      <div class="refresh-info" id="refresh-timer">—</div>
-      <div class="rising-list" id="rising-list">
-        <!-- filled by JS -->
+
+      <!-- Signal explainer -->
+      <div class="signal-box">
+        <div class="signal-item">
+          <div class="signal-icon">🔥</div>
+          <div class="signal-text">
+            <div class="signal-title">Borrow alto = scommessa</div>
+            <div class="signal-desc">Qualcuno ha bloccato SOL per prendere token in prestito. Più borrow = più convinzione.</div>
+          </div>
+        </div>
+        <div class="signal-item">
+          <div class="signal-icon">📊</div>
+          <div class="signal-text">
+            <div class="signal-title">Score composito</div>
+            <div class="signal-desc">Combina borrow × 4, floor, holders e mkt cap in un unico punteggio di interesse.</div>
+          </div>
+        </div>
+        <div class="signal-item">
+          <div class="signal-icon">💡</div>
+          <div class="signal-text">
+            <div class="signal-title">Solo sotto 500K</div>
+            <div class="signal-desc">Small cap con borrow = early alpha. La finestra si chiude quando esplode.</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Filter tabs -->
+      <div class="filter-row">
+        <button class="filter-btn active" data-filter="score" onclick="setFilter('score',this)">⚡ Score</button>
+        <button class="filter-btn" data-filter="borrow" onclick="setFilter('borrow',this)">🔥 Top Borrow</button>
+        <button class="filter-btn" data-filter="holders" onclick="setFilter('holders',this)">👥 Top Holders</button>
+        <button class="filter-btn" data-filter="mcap" onclick="setFilter('mcap',this)">📉 Low Cap</button>
+      </div>
+
+      <div class="rising-meta">
+        <span id="filter-label">Ordinato per score composito</span>
+        <span id="refresh-timer">—</span>
+      </div>
+
+      <div class="rising-list" id="rising-list"></div>
     </section>
   </main>
 
-  <!-- ═══ SIDEBAR ═══ -->
+  <!-- SIDEBAR -->
   <aside>
     <div class="jarrad-card">
       <img class="jarrad-photo"
@@ -643,9 +378,7 @@
         </div>
       </div>
     </div>
-    <a class="riseboard-btn"
-       href="https://rise.rich/@jarradceorise"
-       target="_blank">
+    <a class="riseboard-btn" href="https://rise.rich/@jarradceorise" target="_blank">
       📊 JARRAD RiseBoard
     </a>
   </aside>
@@ -653,14 +386,10 @@
 
 <script>
 // ═══ CONFIG ═══
-const API_BASE   = 'https://public.rise.rich';
-const API_KEY    = 'fkv2e7h3c4l4k7y5';
+const PROXY      = 'https://jarra-driseboard.vercel.app/api/proxy?path=';
 const RISE_TRADE = 'https://rise.rich/trade/';
+const JARRAD_ADDR = 'G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise';
 
-const JARRAD_ADDR  = 'G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise';
-
-// FIX #3: entrambe le card pinned con metadati hardcoded
-// FIX #1 & #2: Just Borrow con nome/simbolo/immagine hardcoded per evitare API vuota
 const PINNED = [
   {
     address: '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH',
@@ -672,207 +401,182 @@ const PINNED = [
     address: '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise',
     name:    'Just Borrow',
     symbol:  'JB',
-    image:   '/just-borrow.jpg',       // FIX #1: path corretto, onerror gestito sotto
-    imageFallback: '/just-borrow.webp' // tenta anche webp se jpg fallisce
+    image:   '/just-borrow.jpg',
+    imageFallback: '/just-borrow.webp',
   },
 ];
 
+// ═══ STATE ═══
+let currentFilter = 'score';
+let risingData    = [];
+
 // ═══ HELPERS ═══
 function fmtPrice(v) {
-  if (v == null || isNaN(v)) return '—';
+  if (!v || isNaN(v)) return '—';
   if (v >= 1) return '$' + v.toFixed(2);
   return '$' + Number(v).toPrecision(4);
 }
 function fmtCompact(v) {
-  if (v == null || isNaN(v)) return '—';
+  if (!v || isNaN(v)) return '—';
   if (v >= 1e6) return '$' + (v/1e6).toFixed(2) + 'M';
   if (v >= 1e3) return '$' + (v/1e3).toFixed(1) + 'K';
   return '$' + v.toFixed(0);
 }
 function fmtSol(v) {
-  if (v == null || isNaN(v)) return '—';
+  if (!v || isNaN(v)) return '—';
   return v.toFixed(3) + ' SOL';
 }
 function fmtBorrowShort(v) {
-  if (v == null || isNaN(v)) return '0.0';
+  if (!v || isNaN(v)) return '0.0';
   if (v >= 1000) return (v/1000).toFixed(1) + 'K';
   return v.toFixed(1);
 }
+function parseBorrow(m) { return parseFloat(m.mayflower_total_debt ?? 0) / 1e9; }
 
-// Scoring formula: borrow*4 + (floor>0?2:0) + min(holders/100,2) + min(mcap/50000,1)
 function calcScore(m) {
   const borrow  = parseBorrow(m);
-  const floor   = parseFloat(m.floor_price  ?? m.min_price ?? 0);
-  const holders = parseInt(m.holder_count   ?? m.holders   ?? 0);
+  const floor   = parseFloat(m.floor_price ?? m.min_price ?? 0);
+  const holders = parseInt(m.holder_count ?? m.holders ?? 0);
   const mcap    = parseFloat(m.market_cap_usd ?? m.market_cap ?? 0);
   return borrow*4 + (floor > 0 ? 2 : 0) + Math.min(holders/100, 2) + Math.min(mcap/50000, 1);
 }
 
-function parseBorrow(m) {
-  const raw = parseFloat(m.mayflower_total_debt ?? 0);
-  return raw / 1e9;
-}
-
-// FIX #4: converte ipfs:// → public gateway; onerror → placeholder diamante
 function resolveImage(uri) {
   if (!uri) return null;
-  if (uri.startsWith('ipfs://')) {
-    const cid = uri.replace('ipfs://', '');
-    return `https://cf-ipfs.com/ipfs/${cid}`;
-  }
+  if (uri.startsWith('ipfs://')) return `https://cf-ipfs.com/ipfs/${uri.replace('ipfs://', '')}`;
   return uri;
 }
 
-function imgWithFallback(src, fallbackSrc, cls, altEmoji = '💎') {
-  if (!src) return `<div class="${cls}"><div class="diamond-placeholder">${altEmoji}</div></div>`;
-
-  const fallbackHtml = fallbackSrc
-    ? `this.src='${fallbackSrc}'; this.onerror=function(){this.style.display='none';this.parentNode.innerHTML='<div class=&quot;diamond-placeholder&quot;>${altEmoji}</div>';};`
-    : `this.style.display='none';this.parentNode.innerHTML='<div class=&quot;diamond-placeholder&quot;>${altEmoji}</div>';`;
-
-  return `<div class="${cls}"><img src="${src}" loading="lazy" onerror="${fallbackHtml}" alt=""></div>`;
+function imgWithFallback(src, fallbackSrc, cls, emoji = '💎') {
+  if (!src) return `<div class="${cls}"><div class="diamond-placeholder">${emoji}</div></div>`;
+  const fb = fallbackSrc
+    ? `this.src='${fallbackSrc}'; this.onerror=function(){this.style.display='none';this.parentNode.innerHTML='<div class=&quot;diamond-placeholder&quot;>${emoji}</div>';};`
+    : `this.style.display='none';this.parentNode.innerHTML='<div class=&quot;diamond-placeholder&quot;>${emoji}</div>';`;
+  return `<div class="${cls}"><img src="${src}" loading="lazy" decoding="async" onerror="${fb}" alt=""></div>`;
 }
 
-// ═══ API FETCH ═══
-const API_HEADERS = { 'x-api-key': API_KEY };
-
+// ═══ API ═══
 async function fetchToken(address) {
   try {
-    const res  = await fetch(`${API_BASE}/markets/${address}`, { headers: API_HEADERS });
+    const res  = await fetch(`${PROXY}/markets/${address}`);
     const json = await res.json();
     if (!json.ok) throw new Error(json.error ?? 'API error');
     return json.data;
-  } catch(e) {
-    console.warn('fetchToken error', address, e);
-    return null;
-  }
+  } catch(e) { console.warn('fetchToken', address, e); return null; }
 }
 
 async function fetchAllMarkets() {
   try {
-    const res  = await fetch(`${API_BASE}/markets`, { headers: API_HEADERS });
+    const res  = await fetch(`${PROXY}/markets`);
     const json = await res.json();
     return json.markets ?? [];
-  } catch(e) {
-    console.warn('fetchAllMarkets error', e);
-    return [];
-  }
+  } catch(e) { console.warn('fetchAllMarkets', e); return []; }
 }
 
-// ═══ RENDER PINNED CARD ═══
-function renderPinned(meta, data) {
-  const name   = meta.name;
-  const symbol = meta.symbol;
-  const borrow = data ? parseBorrow(data) : null;
-  const floor  = data ? parseFloat(data.floor_price ?? data.min_price ?? 0) : null;
-  const mcap   = data ? parseFloat(data.market_cap_usd ?? data.market_cap ?? 0) : null;
-  const holders= data ? parseInt(data.holder_count ?? data.holders ?? 0) : null;
-  const price  = data ? parseFloat(data.price ?? data.last_price ?? 0) : null;
-  const borrowRaw = data ? data.mayflower_total_debt : null;
+// ═══ FILTER ═══
+const FILTER_LABELS = {
+  score:   'Ordinato per score composito (borrow + floor + holders + mkt cap)',
+  borrow:  'Ordinato per borrow attivo (SOL bloccati)',
+  holders: 'Ordinato per numero di holders',
+  mcap:    'Ordinato per market cap crescente (low cap first)',
+};
 
-  // FIX #1: immagine con doppio fallback jpg → webp → emoji
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('filter-label').textContent = FILTER_LABELS[f];
+  renderRisingList();
+}
+
+function sortedRising() {
+  const copy = [...risingData];
+  if (currentFilter === 'borrow')  return copy.sort((a,b) => parseBorrow(b.m) - parseBorrow(a.m));
+  if (currentFilter === 'holders') return copy.sort((a,b) => parseInt(b.m.holder_count ?? b.m.holders ?? 0) - parseInt(a.m.holder_count ?? a.m.holders ?? 0));
+  if (currentFilter === 'mcap')    return copy.sort((a,b) => parseFloat(a.m.market_cap_usd ?? a.m.market_cap ?? 0) - parseFloat(b.m.market_cap_usd ?? b.m.market_cap ?? 0));
+  return copy.sort((a,b) => b.score - a.score); // default: score
+}
+
+function renderRisingList() {
+  const sorted = sortedRising();
+  const maxVal = sorted.length > 0 ? sorted[0].score : 1;
+  const risingList = document.getElementById('rising-list');
+
+  if (sorted.length === 0) {
+    risingList.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">Nessun market sotto 500K trovato.</p>';
+    return;
+  }
+
+  risingList.innerHTML = sorted.slice(0, 15).map((s, i) => {
+    const m      = s.m;
+    const name   = m.token_name ?? m.name ?? 'Unknown';
+    const symbol = m.token_symbol ?? m.symbol ?? '?';
+    const addr   = m.rise_market_address ?? m.address ?? '';
+    const score  = calcScore(m);
+    const pct    = maxVal > 0 ? Math.min(100, (score / maxVal) * 100) : 0;
+    const borrow = parseBorrow(m);
+    const holders= parseInt(m.holder_count ?? m.holders ?? 0);
+    const mcap   = parseFloat(m.market_cap_usd ?? m.market_cap ?? 0);
+
+    // Secondary stat shown depends on active filter
+    let secondary = `score ${score.toFixed(1)}`;
+    if (currentFilter === 'borrow')  secondary = borrow > 0 ? `🔥 ${fmtSol(borrow)}` : '—';
+    if (currentFilter === 'holders') secondary = `👥 ${holders}`;
+    if (currentFilter === 'mcap')    secondary = fmtCompact(mcap);
+
+    return `<div class="rising-item-full" style="animation-delay:${i*30}ms">
+      <div class="rising-rank">#${i+1}</div>
+      <div class="rising-info">
+        <div class="rising-name">${name}</div>
+        <div class="rising-symbol">$${symbol}</div>
+        <div class="score-bar-bg">
+          <div class="score-bar-fill" style="width:${pct.toFixed(1)}%"></div>
+        </div>
+      </div>
+      <div style="text-align:right;min-width:80px">
+        <div class="score-label">${secondary}</div>
+      </div>
+      <a class="rising-trade-btn" href="${RISE_TRADE}${addr}" target="_blank">Trade →</a>
+    </div>`;
+  }).join('');
+}
+
+// ═══ RENDER PINNED ═══
+function renderPinned(meta, data) {
+  const borrow  = data ? parseBorrow(data) : null;
+  const floor   = data ? parseFloat(data.floor_price ?? data.min_price ?? 0) : null;
+  const mcap    = data ? parseFloat(data.market_cap_usd ?? data.market_cap ?? 0) : null;
+  const holders = data ? parseInt(data.holder_count ?? data.holders ?? 0) : null;
+  const price   = data ? parseFloat(data.price ?? data.last_price ?? 0) : null;
+
   const imgHtml = imgWithFallback(meta.image, meta.imageFallback ?? null, 'pinned-img-wrap', '💎');
 
   const borrowHtml = (borrow !== null && borrow > 0)
     ? `<div class="borrow-badge">
-         <div>
-           <div class="borrow-label">🔥 Active Borrow</div>
-           <div class="borrow-sub">${fmtSol(borrowRaw ? borrowRaw/1e9 : borrow)}</div>
-         </div>
+         <div><div class="borrow-label">🔥 Active Borrow</div><div class="borrow-sub">${fmtSol(borrow)}</div></div>
          <div class="borrow-value">${fmtBorrowShort(borrow)}</div>
        </div>`
-    : `<div class="borrow-badge" style="opacity:0.5">
+    : `<div class="borrow-badge" style="opacity:0.45">
          <div><div class="borrow-label">Active Borrow</div></div>
          <div class="borrow-value">—</div>
        </div>`;
 
-  return `
-    ${imgHtml}
+  return `${imgHtml}
     <div class="pinned-body">
-      <div class="token-name">${name}</div>
-      <div class="token-symbol">$${symbol}</div>
+      <div class="token-name">${meta.name}</div>
+      <div class="token-symbol">$${meta.symbol}</div>
       ${borrowHtml}
       <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-label">Floor</div>
-          <div class="stat-value">${fmtPrice(floor)}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Mkt Cap</div>
-          <div class="stat-value">${fmtCompact(mcap)}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Holders</div>
-          <div class="stat-value">${holders ?? '—'}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Price</div>
-          <div class="stat-value price">${fmtPrice(price)}</div>
-        </div>
+        <div class="stat"><div class="stat-label">Floor</div><div class="stat-value">${fmtPrice(floor)}</div></div>
+        <div class="stat"><div class="stat-label">Mkt Cap</div><div class="stat-value">${fmtCompact(mcap)}</div></div>
+        <div class="stat"><div class="stat-label">Holders</div><div class="stat-value">${holders ?? '—'}</div></div>
+        <div class="stat"><div class="stat-label">Price</div><div class="stat-value price">${fmtPrice(price)}</div></div>
       </div>
-      <a class="trade-btn" href="${RISE_TRADE}${meta.address}" target="_blank">
-        Trade $${symbol} →
-      </a>
+      <a class="trade-btn" href="${RISE_TRADE}${meta.address}" target="_blank">Trade $${meta.symbol} →</a>
     </div>`;
 }
 
-// ═══ RENDER ALSO WATCHING ═══
-function renderAlso(market) {
-  const name   = market.token_name   ?? market.name   ?? 'Unknown';
-  const symbol = market.token_symbol ?? market.symbol ?? '?';
-  const borrow = parseBorrow(market);
-  const floor  = parseFloat(market.floor_price  ?? market.min_price ?? 0);
-  const mcap   = parseFloat(market.market_cap_usd ?? market.market_cap ?? 0);
-  const holders= parseInt(market.holder_count   ?? market.holders ?? 0);
-  const addr   = market.rise_market_address ?? market.address ?? '';
-
-  // FIX #4: IPFS image → public gateway, onerror → diamond
-  const rawImg = market.image_uri ?? market.image ?? null;
-  const imgSrc = resolveImage(rawImg);
-  const imgHtml = imgWithFallback(imgSrc, null, 'also-img-wrap', '💎');
-
-  return `<div class="also-card">
-    ${imgHtml}
-    <div class="also-body">
-      <div class="also-name">${name}</div>
-      <div class="also-symbol">$${symbol}</div>
-      <div class="also-stats">
-        <div class="stat"><div class="stat-label">Floor</div><div class="stat-value">${fmtPrice(floor)}</div></div>
-        <div class="stat"><div class="stat-label">Mkt Cap</div><div class="stat-value">${fmtCompact(mcap)}</div></div>
-        <div class="stat"><div class="stat-label">Holders</div><div class="stat-value">${holders}</div></div>
-        <div class="stat"><div class="stat-label">Borrow</div><div class="stat-value">${fmtSol(borrow)}</div></div>
-      </div>
-      ${borrow > 0 ? `<div class="borrow-pill">🔥 ${fmtSol(borrow)}</div>` : ''}
-      <a class="trade-btn" href="${RISE_TRADE}${addr}" target="_blank">Trade $${symbol} →</a>
-    </div>
-  </div>`;
-}
-
-// ═══ RENDER RISING ═══
-function renderRising(market, rank, maxScore) {
-  const name   = market.token_name   ?? market.name   ?? 'Unknown';
-  const symbol = market.token_symbol ?? market.symbol ?? '?';
-  const score  = calcScore(market);
-  const addr   = market.rise_market_address ?? market.address ?? '';
-  const pct    = maxScore > 0 ? Math.min(100, (score / maxScore) * 100) : 0;
-
-  return `<div class="rising-item-full">
-    <div class="rising-rank">#${rank}</div>
-    <div class="rising-info">
-      <div class="rising-name">${name}</div>
-      <div class="rising-symbol">$${symbol}</div>
-      <div class="score-bar-bg" style="margin:4px 0 0">
-        <div class="score-bar-fill" style="width:${pct.toFixed(1)}%"></div>
-      </div>
-    </div>
-    <div class="score-wrap">
-      <div class="score-label">score ${score.toFixed(1)}</div>
-    </div>
-    <a class="rising-trade-btn" href="${RISE_TRADE}${addr}" target="_blank">Trade →</a>
-  </div>`;
-}
-
-// ═══ SIDEBAR: JARRAD stats ═══
+// ═══ JARRAD ═══
 async function loadJarrad() {
   const d = await fetchToken(JARRAD_ADDR);
   if (!d) return;
@@ -882,81 +586,50 @@ async function loadJarrad() {
   document.getElementById('j-mcap').textContent    = fmtCompact(d.market_cap_usd ?? d.market_cap);
 }
 
-// ═══ REFRESH TIMER ═══
-let refreshIn = 300; // 5 min
+// ═══ TIMER ═══
+let refreshIn = 300;
 function tickTimer() {
-  const m = Math.floor(refreshIn / 60);
-  const s = refreshIn % 60;
+  const m = Math.floor(refreshIn / 60), s = refreshIn % 60;
   const el = document.getElementById('refresh-timer');
-  if (el) el.textContent = `Refreshing in ${m}:${s.toString().padStart(2,'0')}`;
+  if (el) el.textContent = `Refresh in ${m}:${s.toString().padStart(2,'0')}`;
   refreshIn--;
   if (refreshIn < 0) { refreshIn = 300; loadAll(); }
 }
 
-// ═══ MAIN LOAD ═══
+// ═══ MAIN ═══
 async function loadAll() {
-  const pinnedAddresses = new Set(PINNED.map(p => p.address));
+  const pinnedSet = new Set(PINNED.map(p => p.address));
 
-  // 1. Pinned cards in parallelo
   const [d0, d1] = await Promise.all([
     fetchToken(PINNED[0].address),
     fetchToken(PINNED[1].address),
   ]);
 
   const grid = document.getElementById('pinned-grid');
-  const cards = [
-    Object.assign(document.createElement('div'), { className: 'pinned-card' }),
-    Object.assign(document.createElement('div'), { className: 'pinned-card' }),
-  ];
-  cards[0].innerHTML = renderPinned(PINNED[0], d0);
-  cards[1].innerHTML = renderPinned(PINNED[1], d1);
+  const c0 = document.createElement('div'); c0.className = 'pinned-card'; c0.innerHTML = renderPinned(PINNED[0], d0);
+  const c1 = document.createElement('div'); c1.className = 'pinned-card'; c1.innerHTML = renderPinned(PINNED[1], d1);
   grid.innerHTML = '';
-  grid.append(...cards);
+  grid.append(c0, c1);
 
-  // 2. All markets per also + rising
   const all = await fetchAllMarkets();
-  const others = all.filter(m => {
-    const addr = m.rise_market_address ?? m.address ?? '';
-    return !pinnedAddresses.has(addr);
-  });
 
-  // Score & sort
-  const scored = others
-    .map(m => ({ m, score: calcScore(m) }))
-    .sort((a, b) => b.score - a.score);
+  // Update scan count
+  const scanEl = document.getElementById('scan-count');
+  if (scanEl) scanEl.textContent = all.length > 0 ? all.length : '—';
 
-  // Also watching: top 2
-  const alsoGrid = document.getElementById('also-grid');
-  if (scored.length >= 2) {
-    alsoGrid.innerHTML = scored.slice(0, 2).map(s => renderAlso(s.m)).join('');
-  } else if (scored.length === 1) {
-    alsoGrid.innerHTML = renderAlso(scored[0].m);
-  } else {
-    alsoGrid.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">No data available.</p>';
-  }
+  const pinnedArr = PINNED.map(p => p.address);
+  risingData = all
+    .filter(m => {
+      const addr = m.rise_market_address ?? m.address ?? '';
+      const mcap = parseFloat(m.market_cap_usd ?? m.market_cap ?? 0);
+      return !pinnedSet.has(addr) && !pinnedArr.includes(addr) && mcap > 0 && mcap < 500000;
+    })
+    .map(m => ({ m, score: calcScore(m) }));
 
-  // Rising under 500K mcap
-  const rising = scored.filter(s => {
-    const mcap = parseFloat(s.m.market_cap_usd ?? s.m.market_cap ?? 0);
-    return mcap < 500000 && mcap > 0;
-  });
-
-  const maxScore = rising.length > 0 ? rising[0].score : 1;
-  const risingList = document.getElementById('rising-list');
-  if (rising.length > 0) {
-    risingList.innerHTML = rising
-      .slice(0, 15)
-      .map((s, i) => renderRising(s.m, i+1, maxScore))
-      .join('');
-  } else {
-    risingList.innerHTML = '<p style="color:var(--text-muted);font-size:.85rem">No markets under 500K found.</p>';
-  }
-
-  // Jarrad sidebar
+  renderRisingList();
   await loadJarrad();
 }
 
-// ═══ BOOT ═══
 loadAll();
 setInterval(tickTimer, 1000);
 tickTimer();
