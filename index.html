@@ -309,11 +309,30 @@
         </div>
       </div>
 
+
+      <!-- AI Disclaimer -->
+      <div style="
+        background: rgba(124,58,237,0.06);
+        border: 1px solid rgba(124,58,237,0.15);
+        border-radius: var(--radius-sm);
+        padding: 12px 16px;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      ">
+        <span style="font-size:1.1rem;margin-top:1px">🤖</span>
+        <div>
+          <div style="font-size:0.73rem;font-weight:700;color:var(--accent-purple);margin-bottom:3px;">AI-Powered Analysis</div>
+          <div style="font-size:0.68rem;color:var(--text-muted);line-height:1.5;">
+            These tokens are surfaced by an algorithm that analyzes on-chain data — borrow activity, floor price, holder distribution and market cap — to identify potential early opportunities on rise.rich. This is not financial advice. Always do your own research before trading.
+          </div>
+        </div>
+      </div>
+
       <div class="filter-row">
         <button class="filter-btn active" data-filter="score"   onclick="setFilter('score',this)">⚡ Score</button>
         <button class="filter-btn"        data-filter="borrow"  onclick="setFilter('borrow',this)">🔥 Top Borrow</button>
-        <button class="filter-btn"        data-filter="holders" onclick="setFilter('holders',this)">👥 Top Holders</button>
-        <button class="filter-btn"        data-filter="mcap"    onclick="setFilter('mcap',this)">📉 Low Cap</button>
       </div>
 
       <div class="rising-meta">
@@ -498,8 +517,6 @@ async function fetchAllMarkets() {
 const FILTER_LABELS = {
   score:   'Sorted by composite score (borrow + floor + holders + mkt cap)',
   borrow:  'Sorted by active borrow (SOL locked)',
-  holders: 'Sorted by number of holders',
-  mcap:    'Sorted by market cap ascending (lowest cap first)',
 };
 
 function setFilter(f, btn) {
@@ -513,8 +530,6 @@ function setFilter(f, btn) {
 function sortedRising() {
   const copy = [...risingData];
   if (currentFilter === 'borrow')  return copy.sort((a,b) => parseBorrow(b.m) - parseBorrow(a.m));
-  if (currentFilter === 'holders') return copy.sort((a,b) => getHolders(b.m)  - getHolders(a.m));
-  if (currentFilter === 'mcap')    return copy.sort((a,b) => getMcap(a.m)     - getMcap(b.m));
   return copy.sort((a,b) => b.score - a.score);
 }
 
@@ -540,8 +555,6 @@ function renderRisingList() {
 
     let secondary = `score ${score.toFixed(1)}`;
     if (currentFilter === 'borrow')  secondary = borrow > 0 ? `🔥 ${fmtSol(borrow)}` : '—';
-    if (currentFilter === 'holders') secondary = `👥 ${holders.toLocaleString()}`;
-    if (currentFilter === 'mcap')    secondary = fmtCompact(mcap);
 
     return `<div class="rising-item-full" style="animation-delay:${i*25}ms">
       <div class="rising-rank">#${i+1}</div>
