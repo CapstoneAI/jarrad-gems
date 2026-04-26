@@ -362,13 +362,13 @@
            target="_blank">Trade $JARRAD →</a>
         <div class="jarrad-links">
           DYOR ·
-          <a href="https://twitter.com/jarradceorise" target="_blank">@jarradceorise</a>
+          <a href="https://x.com/jarradceorise" target="_blank">@jarradceorise</a>
           ·
           <a href="https://t.me/+nI5XvDjAfcMzOTFk" target="_blank">Telegram</a>
         </div>
       </div>
     </div>
-    <a class="riseboard-btn" href="https://rise.rich/@jarradceorise" target="_blank">
+    <a class="riseboard-btn" href="https://jarra-driseboard.vercel.app/" target="_blank">
       📊 JARRAD RiseBoard
     </a>
   </aside>
@@ -426,10 +426,17 @@ function fmtBorrowShort(v) {
   return v.toFixed(1);
 }
 function parseBorrow(m) { return parseFloat(m.mayflower_total_debt ?? 0) / 1e9; }
-function getHolders(m)  { return parseInt(m.holder_count ?? m.holders ?? 0); }
-function getMcap(m)     { return parseFloat(m.market_cap_usd ?? m.market_cap ?? 0); }
-function getFloor(m)    { return parseFloat(m.floor_price ?? m.min_price ?? 0); }
-function getPrice(m)    { return parseFloat(m.price ?? m.last_price ?? 0); }
+function getHolders(m)  { return parseInt(m.holder_count ?? m.holders ?? m.num_holders ?? m.total_holders ?? m.holderCount ?? 0); }
+function getMcap(m)     { return parseFloat(m.market_cap_usd ?? m.market_cap ?? m.marketCap ?? m.fdv_usd ?? m.fdv ?? 0); }
+function getFloor(m)    { return parseFloat(m.floor_price ?? m.min_price ?? m.floorPrice ?? m.floor ?? 0); }
+function getPrice(m)    { return parseFloat(m.price ?? m.last_price ?? m.lastPrice ?? m.current_price ?? 0); }
+// Debug: open F12 Console to see real API field names
+function dbgMarket(m) {
+  if (window._dbgDone) return; window._dbgDone = true;
+  console.log('[JARRAD Gems] Market keys:', Object.keys(m));
+  console.log('[JARRAD Gems] Sample:', JSON.stringify(m, null, 2));
+}
+window._dbgDone = false;
 
 function calcScore(m) {
   const borrow  = parseBorrow(m);
@@ -634,6 +641,9 @@ async function loadAll() {
   // All markets
   const all = await fetchAllMarkets();
   document.getElementById('scan-count').textContent = all.length > 0 ? all.length : '—';
+
+  // Log first market object so we can see real field names (F12 Console)
+  if (all.length > 0) dbgMarket(all[0]);
 
   risingData = all
     .filter(m => {
