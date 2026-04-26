@@ -496,7 +496,7 @@ function parseBorrow(m) {
   return parseFloat(m.mayflower_total_debt ?? m.total_debt ?? m.borrow_amount ?? 0) / 1e9;
 }
 function getHolders(m) {
-  const v = m.holder_count ?? m.holders ?? m.num_holders ?? m.unique_holders ??
+  const v = m.holders_count ?? m.holder_count ?? m.holders ?? m.num_holders ?? m.unique_holders ??
             m.owner_count  ?? m.holderCount ?? m.total_holders ?? m.numHolders;
   return parseInt(v) || 0;
 }
@@ -507,7 +507,7 @@ function getMcap(m) {
   return parseFloat(v) || 0;
 }
 function getFloor(m) {
-  const v = m.floor_price ?? m.min_price ?? m.floorPrice ?? m.floor ??
+  const v = m.mayflower_floor ?? m.floor_price ?? m.min_price ?? m.floorPrice ?? m.floor ??
             m.min_listing_price ?? m.floor_price_usd ?? m.lowest_price;
   return parseFloat(v) || 0;
 }
