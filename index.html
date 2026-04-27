@@ -169,31 +169,20 @@
   .gem-trade-btn:hover { background: var(--accent-purple-hover); }
 
   /* ── ON OUR RADAR ── */
-  .radar-card {
     background: var(--card-bg); border: 1px solid var(--card-border);
     border-radius: var(--radius); box-shadow: var(--shadow);
     backdrop-filter: blur(10px); overflow: hidden;
     display: grid; grid-template-columns: 130px 1fr;
     transition: transform 0.2s ease;
   }
-  .radar-card:hover { transform: translateY(-2px); }
-  .radar-img-wrap {
     background: linear-gradient(135deg, #e9d5ff 0%, #fbcfe8 100%);
     overflow: hidden; position: relative;
   }
-  .radar-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.4s ease; }
-  .radar-card:hover .radar-img-wrap img { transform: scale(1.05); }
-  .radar-placeholder { font-size: 3rem; opacity: 0.3; display: flex; align-items: center; justify-content: center; height: 100%; }
-  .radar-body { padding: 16px 18px; }
-  .radar-name   { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1px; }
-  .radar-symbol { font-size: 0.73rem; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; }
-  .radar-tag {
     display: inline-flex; align-items: center; gap: 5px;
     background: var(--accent-orange-bg); border: 1px solid var(--accent-orange-border);
     border-radius: 99px; padding: 4px 11px; font-size: 0.72rem; font-weight: 600;
     color: var(--borrow-color); margin-bottom: 10px;
   }
-  .radar-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-bottom: 12px; }
   .stat-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--floor-label); }
   .stat-value { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-top: 1px; }
   .stat-value.price { color: var(--price-color); }
@@ -301,8 +290,6 @@
     .layout { grid-template-columns: 1fr; }
     aside { position: static; }
     .gem-stats { grid-template-columns: 1fr 1fr; }
-    .radar-card { grid-template-columns: 1fr; }
-    .radar-img-wrap { height: 160px; }
   }
 </style>
 </head>
@@ -345,32 +332,6 @@
             <div class="gem-stat"><div class="gem-stat-label">Price</div><div class="gem-stat-val price" id="gem-price">—</div></div>
           </div>
           <a class="gem-trade-btn" id="gem-trade-btn" href="#" target="_blank">Trade →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ON OUR RADAR -->
-    <section class="section">
-      <div class="section-label">👀 On Our Radar</div>
-      <div class="radar-card">
-        <div class="radar-img-wrap">
-          <img src="/just-borrow.jpg"
-               onerror="this.src='/just-borrow.webp'; this.onerror=function(){this.style.display='none';this.parentNode.innerHTML='<div class=&quot;radar-placeholder&quot;>💎</div>';};"
-               alt="Just Borrow">
-        </div>
-        <div class="radar-body">
-          <div class="radar-name">Just Borrow</div>
-          <div class="radar-symbol">$JB</div>
-          <div id="jb-borrow-tag"></div>
-          <div class="radar-stats">
-            <div><div class="stat-label">Floor</div><div class="stat-value" id="jb-floor">—</div></div>
-            <div><div class="stat-label">Mkt Cap</div><div class="stat-value" id="jb-mcap">—</div></div>
-            <div><div class="stat-label">Holders</div><div class="stat-value" id="jb-holders">—</div></div>
-            <div><div class="stat-label">Price</div><div class="stat-value price" id="jb-price">—</div></div>
-          </div>
-          <a class="trade-btn"
-             href="https://rise.rich/trade/3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise"
-             target="_blank">Trade $JB →</a>
         </div>
       </div>
     </section>
@@ -446,13 +407,9 @@
 // token address as Gem of the Day. Set to null to
 // let the algorithm auto-pick based on daily score.
 // ═══════════════════════════════════════════════
-const GEM_OVERRIDE = '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH'; // null = auto
+const GEM_OVERRIDE = '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise'; // null = auto
 // Hardcoded metadata for known tokens (used when API is missing fields)
 const KNOWN_TOKENS = {
-  '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH': {
-    name: 'Rubbery Plastic', symbol: 'PLASTIC',
-    image: 'https://i.postimg.cc/J03V3XwJ/QmUbHngksvPc2hNkioAhQRtEtLk9WEx51hbYzU7LC6c4Rx.webp',
-  },
   '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise': {
     name: 'Just Borrow', symbol: 'JB',
     image: '/just-borrow.jpg', imageFallback: '/just-borrow.webp',
@@ -463,7 +420,8 @@ const PROXY        = 'https://jarra-driseboard.vercel.app/api/proxy?path=';
 const RISE_TRADE   = 'https://rise.rich/trade/';
 const JARRAD_ADDR  = 'G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise';
 const JB_ADDR      = '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise';
-const ALWAYS_RADAR = new Set([JB_ADDR, JARRAD_ADDR]);
+const PLASTIC_ADDR = '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH';
+const ALWAYS_RADAR = new Set([JARRAD_ADDR]);
 
 let currentFilter = 'score';
 let risingData    = [];
@@ -707,19 +665,7 @@ async function loadGem(allMarkets) {
   }
 }
 
-// ═══ LOAD ON OUR RADAR ═══
-async function loadRadar() {
-  const data = await fetchToken(JB_ADDR);
-  if (!data) return;
-  const merged = { ...KNOWN_TOKENS[JB_ADDR], ...data };
-  const borrow = parseBorrow(merged);
-  document.getElementById('jb-floor').textContent   = fmtPrice(getFloor(merged))   || '—';
-  document.getElementById('jb-mcap').textContent    = fmtCompact(getMcap(merged))  || '—';
-  document.getElementById('jb-holders').textContent = getHolders(merged) || '—';
-  document.getElementById('jb-price').textContent   = fmtPrice(getPrice(merged))   || '—';
-  const tagEl = document.getElementById('jb-borrow-tag');
-  if (borrow > 0) tagEl.innerHTML = `<div class="radar-tag">🔥 ${fmtSol(borrow)} borrowed</div>`;
-}
+
 
 // ═══ JARRAD ═══
 async function loadJarrad() {
@@ -799,12 +745,11 @@ async function loadAll() {
   // Load everything in parallel
   await Promise.all([
     loadGem(all),
-    loadRadar(),
     loadJarrad(),
   ]);
 
   // Rising ranking — exclude gem + radar tokens
-  const exclude = new Set([...ALWAYS_RADAR, gemAddress].filter(Boolean));
+  const exclude = new Set([...ALWAYS_RADAR, gemAddress, PLASTIC_ADDR].filter(Boolean));
   risingData = all
     .filter(m => {
       const addr = m.rise_market_address ?? m.address ?? '';
