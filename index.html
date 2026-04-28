@@ -407,9 +407,13 @@
 // token address as Gem of the Day. Set to null to
 // let the algorithm auto-pick based on daily score.
 // ═══════════════════════════════════════════════
-const GEM_OVERRIDE = '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise'; // null = auto
+const GEM_OVERRIDE = 'ETYsbBKneriJ8hCbAYqsyCKJE547xFLrudL5HDzPrise'; // null = auto
 // Hardcoded metadata for known tokens (used when API is missing fields)
 const KNOWN_TOKENS = {
+  'ETYsbBKneriJ8hCbAYqsyCKJE547xFLrudL5HDzPrise': {
+    name: 'Rinobot', symbol: 'RINOBOT',
+    image: null,
+  },
   '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise': {
     name: 'Just Borrow', symbol: 'JB',
     image: '/just-borrow.jpg', imageFallback: '/just-borrow.webp',
@@ -421,7 +425,8 @@ const RISE_TRADE   = 'https://rise.rich/trade/';
 const JARRAD_ADDR  = 'G1GjqZRcPg3fdBzYs8mGSLuTmFGmX549BX3Cj1v1rise';
 const JB_ADDR      = '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise';
 const PLASTIC_ADDR = '83DtgbjQP1XGKnJqdxVQZf9shQDUhjgAiD5yrVgKz4oH';
-const ALWAYS_RADAR = new Set([JARRAD_ADDR]);
+const JB_ADDR_EXCL = '3xMXMwdMXkeWGFfU96BNtJ3AofeHK1XFCRzk5V6nrise';
+const ALWAYS_RADAR = new Set([JARRAD_ADDR, JB_ADDR_EXCL]);
 
 let currentFilter = 'score';
 let risingData    = [];
